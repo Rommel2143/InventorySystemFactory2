@@ -57,7 +57,7 @@ Public Class PROD_Setup
             da.Fill(dt)
             datagrid1.DataSource = dt
             datagrid1.AutoResizeColumns()
-
+            HighlightDuplicateRows()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
@@ -193,9 +193,49 @@ Public Class PROD_Setup
         insert_to_traceability()
     End Sub
 
-    Private Sub Panel2_Paint_1(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+    Private Sub HighlightDuplicateRows()
+        Dim duplicateIndices As New List(Of Integer)
+        Dim rowCount As Integer = datagrid1.Rows.Count
 
+        ' Loop through each row
+        For i As Integer = 0 To rowCount - 2
+            Dim isDuplicate As Boolean = False
+            Dim currentRow As DataGridViewRow = datagrid1.Rows(i)
+
+            ' Compare with all subsequent rows
+            For j As Integer = i + 1 To rowCount - 2
+                Dim comparisonRow As DataGridViewRow = datagrid1.Rows(j)
+                If RowsAreEqual(currentRow, comparisonRow) Then
+                    isDuplicate = True
+                    If Not duplicateIndices.Contains(j) Then
+                        duplicateIndices.Add(j)
+                    End If
+                End If
+            Next
+
+            If isDuplicate AndAlso Not duplicateIndices.Contains(i) Then
+                duplicateIndices.Add(i)
+            End If
+        Next
+
+        ' Highlight duplicate rows
+        For Each index As Integer In duplicateIndices
+            datagrid1.Rows(index).DefaultCellStyle.BackColor = Color.Red
+        Next
     End Sub
+
+    Private Function RowsAreEqual(row1 As DataGridViewRow, row2 As DataGridViewRow) As Boolean
+        ' Assuming comparison based on the entire row
+        ' Modify this function to compare specific columns if needed
+        For i As Integer = 0 To row1.Cells.Count - 1
+            If Not row1.Cells(i).Value.Equals(row2.Cells(i).Value) Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
+
+
 
     Private Sub datagrid2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid2.CellContentClick
         Try
@@ -235,11 +275,11 @@ Public Class PROD_Setup
         End Try
     End Sub
 
-    Private Sub datagrid1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContentClick
+    Private Sub datagrid1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
-    Private Sub datagrid1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellClick
+    Private Sub datagrid1_CellClick(sender As Object, e As DataGridViewCellEventArgs)
         Try
             With datagrid1
                 selectedid = .SelectedCells(0).Value.ToString()
