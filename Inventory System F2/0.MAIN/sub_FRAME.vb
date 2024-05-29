@@ -68,4 +68,8 @@ Public Class sub_FRAME
     Private Sub SCANWIPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SCANWIPToolStripMenuItem.Click
         display_formscan(PROD_Scan)
     End Sub
+
+    Private Sub SCANFGToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SCANFGToolStripMenuItem.Click
+        display_formscan(PROD_FG)
+    End Sub
 End Class

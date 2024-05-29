@@ -32,6 +32,7 @@ Partial Class sub_FRAME
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SCANWIPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
@@ -47,7 +48,7 @@ Partial Class sub_FRAME
         Me.QRCheckerToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockMonitoringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.SCANWIPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SCANFGToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -108,7 +109,7 @@ Partial Class sub_FRAME
         '
         'ToolStripMenuItem3
         '
-        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem9, Me.SCANWIPToolStripMenuItem})
+        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem9, Me.SCANWIPToolStripMenuItem, Me.SCANFGToolStripMenuItem})
         Me.ToolStripMenuItem3.Image = CType(resources.GetObject("ToolStripMenuItem3.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
         Me.ToolStripMenuItem3.Size = New System.Drawing.Size(123, 37)
@@ -120,6 +121,12 @@ Partial Class sub_FRAME
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
         Me.ToolStripMenuItem9.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem9.Text = "SETUP FG"
+        '
+        'SCANWIPToolStripMenuItem
+        '
+        Me.SCANWIPToolStripMenuItem.Name = "SCANWIPToolStripMenuItem"
+        Me.SCANWIPToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SCANWIPToolStripMenuItem.Text = "SCAN WIP"
         '
         'ToolStripMenuItem5
         '
@@ -240,11 +247,11 @@ Partial Class sub_FRAME
         Me.Panel1.Size = New System.Drawing.Size(1208, 636)
         Me.Panel1.TabIndex = 12
         '
-        'SCANWIPToolStripMenuItem
+        'SCANFGToolStripMenuItem
         '
-        Me.SCANWIPToolStripMenuItem.Name = "SCANWIPToolStripMenuItem"
-        Me.SCANWIPToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SCANWIPToolStripMenuItem.Text = "SCAN WIP"
+        Me.SCANFGToolStripMenuItem.Name = "SCANFGToolStripMenuItem"
+        Me.SCANFGToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SCANFGToolStripMenuItem.Text = "SCAN FG"
         '
         'sub_FRAME
         '
@@ -288,4 +295,5 @@ Partial Class sub_FRAME
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem9 As ToolStripMenuItem
     Friend WithEvents SCANWIPToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SCANFGToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -141,7 +141,7 @@ Public Class PROD_Setup
     Private Sub insert_to_traceability()
         Try
             ' Concatenate today's date and serial number
-            concatenatedValue = selectedfg & "_" & todayDate & "_" & "1"
+            concatenatedValue = selectedfg & "_" & todayDate & "_" & cmbline.Text & "_" & "1"
 
             con.Close()
             con.Open()
@@ -176,7 +176,6 @@ Public Class PROD_Setup
 
                 Next
                 MessageBox.Show("saved success!")
-                refreshgrid2()
 
             End If
 

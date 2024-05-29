@@ -7,7 +7,7 @@ Public Class PROD_Scan
         lbl_shift.Text = shift1
 
         AddHandler datagrid1.RowEnter, AddressOf datagrid1_RowEnter
-        'AddHandler btnsave.Click, AddressOf btnSave_Click
+
     End Sub
 
     Private Sub cmbline_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbline.SelectedIndexChanged
@@ -70,7 +70,7 @@ Public Class PROD_Scan
             Dim dt As New DataTable
             da.Fill(dt)
             datagrid1.DataSource = dt
-            datagrid1.AutoResizeColumns()
+
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -181,8 +181,10 @@ Public Class PROD_Scan
                                 Dim newsupplier As String = supplier
                                 datagrid1.Rows(selectedRowIndex).Cells("partqr").Value = newPartQR
                                 datagrid1.Rows(selectedRowIndex).Cells("suppliercode").Value = newsupplier
+                                labelerror.Visible = False
                                 txtpartqr.Text = ""
                                 txtpartqr.Focus()
+
                             Else
                                 showerror("PARTCODE DOES'NT MATCH!")
                                 txtpartqr.Text = ""
@@ -234,6 +236,10 @@ Public Class PROD_Scan
     End Sub
 
     Private Sub btnsave_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
     End Sub
 End Class

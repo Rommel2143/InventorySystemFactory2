@@ -172,6 +172,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="0.MAIN\Module1.vb" />
+    <Compile Include="3.PRODUCTION\PROD_FG.Designer.vb">
+      <DependentUpon>PROD_FG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="3.PRODUCTION\PROD_FG.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="3.PRODUCTION\PROD_Scan.Designer.vb">
       <DependentUpon>PROD_Scan.vb</DependentUpon>
     </Compile>
@@ -271,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="0.MAIN\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="3.PRODUCTION\PROD_FG.resx">
+      <DependentUpon>PROD_FG.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="3.PRODUCTION\PROD_Scan.resx">
       <DependentUpon>PROD_Scan.vb</DependentUpon>
