@@ -47,11 +47,14 @@ Partial Class PROD_Setup
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Guna2NumericUpDown1 = New Guna.UI2.WinForms.Guna2NumericUpDown()
+        Me.cmbshift = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.cmbsearch = New Guna.UI2.WinForms.Guna2TextBox()
         Me.paneladd = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.txtusage = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.datagrid2 = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -62,7 +65,6 @@ Partial Class PROD_Setup
         Me.labelerror.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Guna2NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.paneladd.SuspendLayout()
         CType(Me.txtusage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datagrid2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,7 +160,7 @@ Partial Class PROD_Setup
         Me.cmbline.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbline.FormattingEnabled = True
         Me.cmbline.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"})
-        Me.cmbline.Location = New System.Drawing.Point(35, 57)
+        Me.cmbline.Location = New System.Drawing.Point(35, 59)
         Me.cmbline.Name = "cmbline"
         Me.cmbline.Size = New System.Drawing.Size(85, 29)
         Me.cmbline.TabIndex = 208
@@ -238,9 +240,11 @@ Partial Class PROD_Setup
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
-        Me.Panel2.Controls.Add(Me.datagrid1)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.Guna2NumericUpDown1)
+        Me.Panel2.Controls.Add(Me.cmbshift)
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Controls.Add(Me.DateTimePicker1)
+        Me.Panel2.Controls.Add(Me.datagrid1)
         Me.Panel2.Controls.Add(Me.cmbsearch)
         Me.Panel2.Controls.Add(Me.paneladd)
         Me.Panel2.Controls.Add(Me.txtpass)
@@ -257,6 +261,42 @@ Partial Class PROD_Setup
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1190, 721)
         Me.Panel2.TabIndex = 5
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(201, 41)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 13)
+        Me.Label1.TabIndex = 224
+        Me.Label1.Text = "Set date :"
+        '
+        'cmbshift
+        '
+        Me.cmbshift.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbshift.FormattingEnabled = True
+        Me.cmbshift.Items.AddRange(New Object() {"Dayshift", "Nightshift"})
+        Me.cmbshift.Location = New System.Drawing.Point(516, 59)
+        Me.cmbshift.Name = "cmbshift"
+        Me.cmbshift.Size = New System.Drawing.Size(161, 29)
+        Me.cmbshift.TabIndex = 223
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(513, 41)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(33, 13)
+        Me.Label2.TabIndex = 222
+        Me.Label2.Text = "Line :"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Location = New System.Drawing.Point(204, 60)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(266, 27)
+        Me.DateTimePicker1.TabIndex = 219
         '
         'datagrid1
         '
@@ -325,26 +365,6 @@ Partial Class PROD_Setup
         Me.datagrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.datagrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(354, 41)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 13)
-        Me.Label1.TabIndex = 217
-        Me.Label1.Text = "Box per Skateboard :"
-        '
-        'Guna2NumericUpDown1
-        '
-        Me.Guna2NumericUpDown1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2NumericUpDown1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2NumericUpDown1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2NumericUpDown1.Location = New System.Drawing.Point(371, 57)
-        Me.Guna2NumericUpDown1.Name = "Guna2NumericUpDown1"
-        Me.Guna2NumericUpDown1.Size = New System.Drawing.Size(79, 34)
-        Me.Guna2NumericUpDown1.TabIndex = 216
-        Me.Guna2NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
         'cmbsearch
         '
         Me.cmbsearch.AutoRoundedCorners = True
@@ -370,6 +390,7 @@ Partial Class PROD_Setup
         '
         'paneladd
         '
+        Me.paneladd.Controls.Add(Me.Label4)
         Me.paneladd.Controls.Add(Me.txtusage)
         Me.paneladd.Controls.Add(Me.Guna2Button2)
         Me.paneladd.Controls.Add(Me.datagrid2)
@@ -380,12 +401,21 @@ Partial Class PROD_Setup
         Me.paneladd.Size = New System.Drawing.Size(609, 435)
         Me.paneladd.TabIndex = 214
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(13, 185)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(69, 13)
+        Me.Label4.TabIndex = 225
+        Me.Label4.Text = "Enter Usage:"
+        '
         'txtusage
         '
         Me.txtusage.BackColor = System.Drawing.Color.Transparent
         Me.txtusage.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtusage.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtusage.Location = New System.Drawing.Point(13, 169)
+        Me.txtusage.Location = New System.Drawing.Point(13, 201)
         Me.txtusage.Name = "txtusage"
         Me.txtusage.Size = New System.Drawing.Size(79, 49)
         Me.txtusage.TabIndex = 213
@@ -517,8 +547,8 @@ Partial Class PROD_Setup
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Guna2NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.paneladd.ResumeLayout(False)
+        Me.paneladd.PerformLayout()
         CType(Me.txtusage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.datagrid2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -545,8 +575,11 @@ Partial Class PROD_Setup
     Friend WithEvents paneladd As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents txtusage As Guna.UI2.WinForms.Guna2NumericUpDown
     Friend WithEvents cmbsearch As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Guna2NumericUpDown1 As Guna.UI2.WinForms.Guna2NumericUpDown
     Friend WithEvents Timer1 As Timer
     Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cmbshift As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label4 As Label
 End Class

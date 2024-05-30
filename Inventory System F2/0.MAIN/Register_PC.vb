@@ -9,8 +9,8 @@ Public Class Register_PC
         If txtuser.Text = "PTRCI" And txtpassword.Text = "redhorsE" And cmblocation.Text IsNot "" Then
             con.Close()
             con.Open()
-            Dim cmdselect As New MySqlCommand("INSERT INTO `f2_computer_location`(`PCname`, `PCmac`, `location`) VALUES ('" & PCname & "','" & PCmac & "','" & cmblocation.Text & "')", con)
-            dr = cmdselect.ExecuteReader
+            Dim cmdinsert As New MySqlCommand("INSERT INTO `f2_computer_location`(`PCname`, `PCmac`, `location`) VALUES ('" & PCname & "','" & PCmac & "','" & cmblocation.Text & "')", con)
+            dr = cmdinsert.ExecuteReader
             Dim result As DialogResult = MessageBox.Show("Machine Verified!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             If result = DialogResult.OK Then

@@ -343,4 +343,18 @@ Public Class PROD_Setup
     Private Sub datagrid1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContentClick
 
     End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbshift.SelectedIndexChanged
+        Select Case cmbshift.Text
+            Case "Dayshift"
+                shift1 = "DS"
+            Case "Nightshift"
+                shift1 = "NS"
+        End Select
+
+    End Sub
 End Class

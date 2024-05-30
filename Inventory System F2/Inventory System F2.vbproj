@@ -190,6 +190,12 @@
     <Compile Include="3.PRODUCTION\PROD_Setup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="4.FG\FG_OUT.Designer.vb">
+      <DependentUpon>FG_OUT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="4.FG\FG_OUT.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="3.PRODUCTION\PROD_Setup.resx">
       <DependentUpon>PROD_Setup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.FG\FG_OUT.resx">
+      <DependentUpon>FG_OUT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

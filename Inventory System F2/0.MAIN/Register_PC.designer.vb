@@ -97,13 +97,12 @@ Partial Class Register_PC
         Me.cmblocation.BackColor = System.Drawing.Color.Transparent
         Me.cmblocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.cmblocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmblocation.Enabled = False
         Me.cmblocation.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmblocation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmblocation.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmblocation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmblocation.ItemHeight = 30
-        Me.cmblocation.Items.AddRange(New Object() {"U1-4", "U5-6", "F2"})
+        Me.cmblocation.Items.AddRange(New Object() {"Recieving", "Outgoing", "Production"})
         Me.cmblocation.Location = New System.Drawing.Point(314, 332)
         Me.cmblocation.Name = "cmblocation"
         Me.cmblocation.Size = New System.Drawing.Size(183, 36)
