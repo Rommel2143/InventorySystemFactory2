@@ -1,7 +1,7 @@
 ﻿Public Class FG_OUT
     Dim batch As String
     Private Sub FG_OUT_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        txtdate.Text = date1
     End Sub
 
     Private Sub batchcode_TextChanged(sender As Object, e As EventArgs) Handles batchcode.TextChanged
@@ -29,6 +29,9 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub txtqr_TextChanged(sender As Object, e As EventArgs) Handles txtqr.TextChanged
 
     End Sub
 End Class
