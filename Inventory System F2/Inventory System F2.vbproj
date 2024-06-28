@@ -14,20 +14,24 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <UpdateUrl>\\ptif1-ds\SHARED\it\system\Inventorysystem-F2\</UpdateUrl>
+    <PublisherName>Rommel Magnaye</PublisherName>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -62,6 +66,18 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>EF5C59984F02C0741B4D51F2BFD3C3F2C723FB50</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Inventory System F2_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -69,6 +85,7 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -124,6 +141,7 @@
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -172,6 +190,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="0.MAIN\Module1.vb" />
+    <Compile Include="1.PARTS\PARTS_IN.designer.vb">
+      <DependentUpon>PARTS_IN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1.PARTS\PARTS_IN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.WIP\WIP_Return.designer.vb">
+      <DependentUpon>WIP_Return.vb</DependentUpon>
+    </Compile>
+    <Compile Include="2.WIP\WIP_Return.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="3.PRODUCTION\PROD_FG.Designer.vb">
       <DependentUpon>PROD_FG.vb</DependentUpon>
     </Compile>
@@ -196,10 +226,34 @@
     <Compile Include="4.FG\FG_IN.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="4.FG\FG_IN_Results.Designer.vb">
+      <DependentUpon>FG_IN_Results.vb</DependentUpon>
+    </Compile>
+    <Compile Include="4.FG\FG_IN_Results.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="4.FG\FG_OUT.Designer.vb">
       <DependentUpon>FG_OUT.vb</DependentUpon>
     </Compile>
     <Compile Include="4.FG\FG_OUT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.FG\FG_OUT_Results.Designer.vb">
+      <DependentUpon>FG_OUT_Results.vb</DependentUpon>
+    </Compile>
+    <Compile Include="4.FG\FG_OUT_Results.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.FG\FG_Return.Designer.vb">
+      <DependentUpon>FG_Return.vb</DependentUpon>
+    </Compile>
+    <Compile Include="4.FG\FG_Return.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\Add_item.Designer.vb">
+      <DependentUpon>Add_item.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Add_item.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -242,12 +296,6 @@
     <Compile Include="1.PARTS\PARTS_Results.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1.PARTS\PARTS_IN.designer.vb">
-      <DependentUpon>PARTS_IN.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1.PARTS\PARTS_IN.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="0.MAIN\sub_FRAME.designer.vb">
       <DependentUpon>sub_FRAME.vb</DependentUpon>
     </Compile>
@@ -264,12 +312,6 @@
       <DependentUpon>WIP_Results.vb</DependentUpon>
     </Compile>
     <Compile Include="2.WIP\WIP_Results.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="2.WIP\WIP_Return.designer.vb">
-      <DependentUpon>WIP_Return.vb</DependentUpon>
-    </Compile>
-    <Compile Include="2.WIP\WIP_Return.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="2.WIP\WIP_In.designer.vb">
@@ -290,6 +332,12 @@
     <EmbeddedResource Include="0.MAIN\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="1.PARTS\PARTS_IN.resx">
+      <DependentUpon>PARTS_IN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.WIP\WIP_Return.resx">
+      <DependentUpon>WIP_Return.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="3.PRODUCTION\PROD_FG.resx">
       <DependentUpon>PROD_FG.vb</DependentUpon>
     </EmbeddedResource>
@@ -302,8 +350,20 @@
     <EmbeddedResource Include="4.FG\FG_IN.resx">
       <DependentUpon>FG_IN.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="4.FG\FG_IN_Results.resx">
+      <DependentUpon>FG_IN_Results.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="4.FG\FG_OUT.resx">
       <DependentUpon>FG_OUT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.FG\FG_OUT_Results.resx">
+      <DependentUpon>FG_OUT_Results.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.FG\FG_Return.resx">
+      <DependentUpon>FG_Return.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\Add_item.resx">
+      <DependentUpon>Add_item.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -323,9 +383,6 @@
     <EmbeddedResource Include="1.PARTS\PARTS_Results.resx">
       <DependentUpon>PARTS_Results.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1.PARTS\PARTS_IN.resx">
-      <DependentUpon>PARTS_IN.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="0.MAIN\sub_FRAME.resx">
       <DependentUpon>sub_FRAME.vb</DependentUpon>
     </EmbeddedResource>
@@ -334,9 +391,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2.WIP\WIP_Results.resx">
       <DependentUpon>WIP_Results.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="2.WIP\WIP_Return.resx">
-      <DependentUpon>WIP_Return.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2.WIP\WIP_In.resx">
       <DependentUpon>WIP_In.vb</DependentUpon>
@@ -354,6 +408,7 @@
     <None Include="0.MAIN\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="Inventory System F2_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

@@ -94,6 +94,7 @@ Partial Class Register_PC
         '
         'cmblocation
         '
+        Me.cmblocation.AutoCompleteCustomSource.AddRange(New String() {"Recieving", "WIP", "Outgoing"})
         Me.cmblocation.BackColor = System.Drawing.Color.Transparent
         Me.cmblocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.cmblocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -102,11 +103,10 @@ Partial Class Register_PC
         Me.cmblocation.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmblocation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmblocation.ItemHeight = 30
-        Me.cmblocation.Items.AddRange(New Object() {"Recieving", "Outgoing", "Production"})
+        Me.cmblocation.Items.AddRange(New Object() {"Recieving", "Outgoing", "WIP"})
         Me.cmblocation.Location = New System.Drawing.Point(314, 332)
         Me.cmblocation.Name = "cmblocation"
         Me.cmblocation.Size = New System.Drawing.Size(183, 36)
-        Me.cmblocation.StartIndex = 2
         Me.cmblocation.TabIndex = 203
         '
         'Guna2Button2

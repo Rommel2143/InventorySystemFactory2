@@ -33,7 +33,7 @@ Public Class sub_FRAME
     End Sub
 
     Private Sub DeviceInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeviceInfoToolStripMenuItem.Click
-        MessageBox.Show("Device loc:" & PClocation & "   /  Mac:" & PCmac & "   /  Device:" & PCname & "")
+        MessageBox.Show("SERVER:29 Device loc:" & PClocation & "   /  Mac:" & PCmac & "   /  Device:" & PCname & "")
     End Sub
 
     Private Sub SuggestToImproveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuggestToImproveToolStripMenuItem.Click
@@ -71,5 +71,21 @@ Public Class sub_FRAME
 
     Private Sub SCANFGToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SCANFGToolStripMenuItem.Click
         display_formscan(PROD_FG)
+    End Sub
+
+    Private Sub ToolStripMenuItem6_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem6.Click
+        display_formscan(FG_IN)
+    End Sub
+
+    Private Sub ToolStripMenuItem7_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem7.Click
+        display_formscan(FG_out)
+    End Sub
+
+    Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
+        display_formscan(FG_Return)
+    End Sub
+
+    Private Sub ManageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManageToolStripMenuItem.Click
+        display_formscan(Add_item)
     End Sub
 End Class

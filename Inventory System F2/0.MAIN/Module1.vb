@@ -6,8 +6,8 @@ Module Module1
 
     Public Function connection() As MySqlConnection
 
-        'Return New MySqlConnection("server=PTI-027s;user id=inventoryf2;password=admin123@;database=trcsystem")
-        Return New MySqlConnection("server=localhost;user id=inventoryf2;password=admin123@;database=trcsystem")
+        Return New MySqlConnection("server=PTI-029;user id=inventoryf2;password=admin123@;database=trcsystem")
+        ' Return New MySqlConnection("server=localhost;user id=inventoryf2;password=admin123@;database=trcsystem")
     End Function
     Public con As MySqlConnection = connection()
     Public result As String
@@ -133,6 +133,34 @@ Module Module1
             con.Close()
             con.Open()
             Dim cmdupdate As New MySqlCommand("UPDATE `f2_parts_masterlist` SET `wipstockf2`= (`wipstockf2`-" & qtytoadd & ") WHERE `id`='" & idtoadd & "' ", con)
+            cmdupdate.ExecuteNonQuery()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Public Sub add_to_fg(qtytoadd As Integer, partcodetoadd As String)
+        Try
+
+            con.Close()
+            con.Open()
+            Dim cmdupdate As New MySqlCommand("UPDATE `f2_fg_masterlist` SET `stockf2`= (`stockF2`+" & qtytoadd & ") WHERE `partcode`='" & partcodetoadd & "'", con)
+            cmdupdate.ExecuteNonQuery()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Public Sub deduct_to_fg(qtytoadd As Integer, partcodetoadd As String)
+        Try
+
+            con.Close()
+            con.Open()
+            Dim cmdupdate As New MySqlCommand("UPDATE `f2_fg_masterlist` SET `stockf2`= (`stockF2`-" & qtytoadd & ") WHERE `partcode`='" & partcodetoadd & "'", con)
             cmdupdate.ExecuteNonQuery()
         Catch ex As Exception
             MessageBox.Show(ex.Message)

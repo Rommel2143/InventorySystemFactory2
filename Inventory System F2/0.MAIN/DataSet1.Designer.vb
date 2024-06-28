@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class DataSet1
     Inherits Global.System.Data.DataSet
     
-    Private tabletblscan As tblscanDataTable
+    Private tablef2_fg_scan As f2_fg_scanDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class DataSet1
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("tblscan")) Is Nothing) Then
-                MyBase.Tables.Add(New tblscanDataTable(ds.Tables("tblscan")))
+            If (Not (ds.Tables("f2_fg_scan")) Is Nothing) Then
+                MyBase.Tables.Add(New f2_fg_scanDataTable(ds.Tables("f2_fg_scan")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class DataSet1
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property tblscan() As tblscanDataTable
+    Public ReadOnly Property f2_fg_scan() As f2_fg_scanDataTable
         Get
-            Return Me.tabletblscan
+            Return Me.tablef2_fg_scan
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class DataSet1
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("tblscan")) Is Nothing) Then
-                MyBase.Tables.Add(New tblscanDataTable(ds.Tables("tblscan")))
+            If (Not (ds.Tables("f2_fg_scan")) Is Nothing) Then
+                MyBase.Tables.Add(New f2_fg_scanDataTable(ds.Tables("f2_fg_scan")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class DataSet1
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tabletblscan = CType(MyBase.Tables("tblscan"),tblscanDataTable)
+        Me.tablef2_fg_scan = CType(MyBase.Tables("f2_fg_scan"),f2_fg_scanDataTable)
         If (initTable = true) Then
-            If (Not (Me.tabletblscan) Is Nothing) Then
-                Me.tabletblscan.InitVars
+            If (Not (Me.tablef2_fg_scan) Is Nothing) Then
+                Me.tablef2_fg_scan.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class DataSet1
         Me.Namespace = "http://tempuri.org/DataSet1.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tabletblscan = New tblscanDataTable()
-        MyBase.Tables.Add(Me.tabletblscan)
+        Me.tablef2_fg_scan = New f2_fg_scanDataTable()
+        MyBase.Tables.Add(Me.tablef2_fg_scan)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializetblscan() As Boolean
+    Private Function ShouldSerializef2_fg_scan() As Boolean
         Return false
     End Function
     
@@ -273,21 +273,23 @@ Partial Public Class DataSet1
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub tblscanRowChangeEventHandler(ByVal sender As Object, ByVal e As tblscanRowChangeEvent)
+    Public Delegate Sub f2_fg_scanRowChangeEventHandler(ByVal sender As Object, ByVal e As f2_fg_scanRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class tblscanDataTable
-        Inherits Global.System.Data.TypedTableBase(Of tblscanRow)
+    Partial Public Class f2_fg_scanDataTable
+        Inherits Global.System.Data.TypedTableBase(Of f2_fg_scanRow)
         
         Private columnid As Global.System.Data.DataColumn
         
         Private columnstatus As Global.System.Data.DataColumn
         
         Private columnbatch As Global.System.Data.DataColumn
+        
+        Private columnqrcode As Global.System.Data.DataColumn
         
         Private columnpartcode As Global.System.Data.DataColumn
         
@@ -297,25 +299,27 @@ Partial Public Class DataSet1
         
         Private columnqty As Global.System.Data.DataColumn
         
-        Private columnbatchout As Global.System.Data.DataColumn
+        Private columndatein As Global.System.Data.DataColumn
         
-        Private columndateout As Global.System.Data.DataColumn
+        Private columnuserin As Global.System.Data.DataColumn
+        
+        Private columnbatchout As Global.System.Data.DataColumn
         
         Private columnuserout As Global.System.Data.DataColumn
         
-        Private columnlocated As Global.System.Data.DataColumn
+        Private columndateout As Global.System.Data.DataColumn
         
         Private columnboxno As Global.System.Data.DataColumn
         
-        Private columnfullname As Global.System.Data.DataColumn
+        Private columnFullname As Global.System.Data.DataColumn
         
-        Private columnpartname As Global.System.Data.DataColumn
+        Private columnPartname As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "tblscan"
+            Me.TableName = "f2_fg_scan"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -372,6 +376,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property qrcodeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnqrcode
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property partcodeColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnpartcode
@@ -404,17 +416,25 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property batchoutColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property dateinColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnbatchout
+                Return Me.columndatein
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property dateoutColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property userinColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndateout
+                Return Me.columnuserin
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property batchoutColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnbatchout
             End Get
         End Property
         
@@ -428,9 +448,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property locatedColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property dateoutColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnlocated
+                Return Me.columndateout
             End Get
         End Property
         
@@ -444,17 +464,17 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property fullnameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property FullnameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnfullname
+                Return Me.columnFullname
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property partnameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PartnameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnpartname
+                Return Me.columnPartname
             End Get
         End Property
         
@@ -469,50 +489,66 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As tblscanRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As f2_fg_scanRow
             Get
-                Return CType(Me.Rows(index),tblscanRow)
+                Return CType(Me.Rows(index),f2_fg_scanRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event tblscanRowChanging As tblscanRowChangeEventHandler
+        Public Event f2_fg_scanRowChanging As f2_fg_scanRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event tblscanRowChanged As tblscanRowChangeEventHandler
+        Public Event f2_fg_scanRowChanged As f2_fg_scanRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event tblscanRowDeleting As tblscanRowChangeEventHandler
+        Public Event f2_fg_scanRowDeleting As f2_fg_scanRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event tblscanRowDeleted As tblscanRowChangeEventHandler
+        Public Event f2_fg_scanRowDeleted As f2_fg_scanRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AddtblscanRow(ByVal row As tblscanRow)
+        Public Overloads Sub Addf2_fg_scanRow(ByVal row As f2_fg_scanRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddtblscanRow(ByVal id As String, ByVal status As String, ByVal batch As String, ByVal partcode As String, ByVal lotnumber As String, ByVal remarks As String, ByVal qty As Integer, ByVal batchout As String, ByVal dateout As String, ByVal userout As String, ByVal located As String, ByVal boxno As String, ByVal fullname As String, ByVal partname As String) As tblscanRow
-            Dim rowtblscanRow As tblscanRow = CType(Me.NewRow,tblscanRow)
-            Dim columnValuesArray() As Object = New Object() {id, status, batch, partcode, lotnumber, remarks, qty, batchout, dateout, userout, located, boxno, fullname, partname}
-            rowtblscanRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowtblscanRow)
-            Return rowtblscanRow
+        Public Overloads Function Addf2_fg_scanRow( _
+                    ByVal id As String,  _
+                    ByVal status As String,  _
+                    ByVal batch As String,  _
+                    ByVal qrcode As String,  _
+                    ByVal partcode As String,  _
+                    ByVal lotnumber As String,  _
+                    ByVal remarks As String,  _
+                    ByVal qty As Integer,  _
+                    ByVal datein As String,  _
+                    ByVal userin As String,  _
+                    ByVal batchout As String,  _
+                    ByVal userout As String,  _
+                    ByVal dateout As String,  _
+                    ByVal boxno As String,  _
+                    ByVal Fullname As String,  _
+                    ByVal Partname As String) As f2_fg_scanRow
+            Dim rowf2_fg_scanRow As f2_fg_scanRow = CType(Me.NewRow,f2_fg_scanRow)
+            Dim columnValuesArray() As Object = New Object() {id, status, batch, qrcode, partcode, lotnumber, remarks, qty, datein, userin, batchout, userout, dateout, boxno, Fullname, Partname}
+            rowf2_fg_scanRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowf2_fg_scanRow)
+            Return rowf2_fg_scanRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByid(ByVal id As String) As tblscanRow
-            Return CType(Me.Rows.Find(New Object() {id}),tblscanRow)
+        Public Function FindByid(ByVal id As String) As f2_fg_scanRow
+            Return CType(Me.Rows.Find(New Object() {id}),f2_fg_scanRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As tblscanDataTable = CType(MyBase.Clone,tblscanDataTable)
+            Dim cln As f2_fg_scanDataTable = CType(MyBase.Clone,f2_fg_scanDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -520,7 +556,7 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New tblscanDataTable()
+            Return New f2_fg_scanDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -529,17 +565,19 @@ Partial Public Class DataSet1
             Me.columnid = MyBase.Columns("id")
             Me.columnstatus = MyBase.Columns("status")
             Me.columnbatch = MyBase.Columns("batch")
+            Me.columnqrcode = MyBase.Columns("qrcode")
             Me.columnpartcode = MyBase.Columns("partcode")
             Me.columnlotnumber = MyBase.Columns("lotnumber")
             Me.columnremarks = MyBase.Columns("remarks")
             Me.columnqty = MyBase.Columns("qty")
+            Me.columndatein = MyBase.Columns("datein")
+            Me.columnuserin = MyBase.Columns("userin")
             Me.columnbatchout = MyBase.Columns("batchout")
-            Me.columndateout = MyBase.Columns("dateout")
             Me.columnuserout = MyBase.Columns("userout")
-            Me.columnlocated = MyBase.Columns("located")
+            Me.columndateout = MyBase.Columns("dateout")
             Me.columnboxno = MyBase.Columns("boxno")
-            Me.columnfullname = MyBase.Columns("fullname")
-            Me.columnpartname = MyBase.Columns("partname")
+            Me.columnFullname = MyBase.Columns("Fullname")
+            Me.columnPartname = MyBase.Columns("Partname")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -551,6 +589,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnstatus)
             Me.columnbatch = New Global.System.Data.DataColumn("batch", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnbatch)
+            Me.columnqrcode = New Global.System.Data.DataColumn("qrcode", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnqrcode)
             Me.columnpartcode = New Global.System.Data.DataColumn("partcode", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpartcode)
             Me.columnlotnumber = New Global.System.Data.DataColumn("lotnumber", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -559,20 +599,22 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnremarks)
             Me.columnqty = New Global.System.Data.DataColumn("qty", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnqty)
+            Me.columndatein = New Global.System.Data.DataColumn("datein", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndatein)
+            Me.columnuserin = New Global.System.Data.DataColumn("userin", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnuserin)
             Me.columnbatchout = New Global.System.Data.DataColumn("batchout", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnbatchout)
-            Me.columndateout = New Global.System.Data.DataColumn("dateout", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndateout)
             Me.columnuserout = New Global.System.Data.DataColumn("userout", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnuserout)
-            Me.columnlocated = New Global.System.Data.DataColumn("located", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnlocated)
+            Me.columndateout = New Global.System.Data.DataColumn("dateout", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndateout)
             Me.columnboxno = New Global.System.Data.DataColumn("boxno", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnboxno)
-            Me.columnfullname = New Global.System.Data.DataColumn("fullname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfullname)
-            Me.columnpartname = New Global.System.Data.DataColumn("partname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnpartname)
+            Me.columnFullname = New Global.System.Data.DataColumn("Fullname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFullname)
+            Me.columnPartname = New Global.System.Data.DataColumn("Partname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPartname)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AllowDBNull = false
             Me.columnid.Unique = true
@@ -580,28 +622,28 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewtblscanRow() As tblscanRow
-            Return CType(Me.NewRow,tblscanRow)
+        Public Function Newf2_fg_scanRow() As f2_fg_scanRow
+            Return CType(Me.NewRow,f2_fg_scanRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New tblscanRow(builder)
+            Return New f2_fg_scanRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(tblscanRow)
+            Return GetType(f2_fg_scanRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.tblscanRowChangedEvent) Is Nothing) Then
-                RaiseEvent tblscanRowChanged(Me, New tblscanRowChangeEvent(CType(e.Row,tblscanRow), e.Action))
+            If (Not (Me.f2_fg_scanRowChangedEvent) Is Nothing) Then
+                RaiseEvent f2_fg_scanRowChanged(Me, New f2_fg_scanRowChangeEvent(CType(e.Row,f2_fg_scanRow), e.Action))
             End If
         End Sub
         
@@ -609,8 +651,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.tblscanRowChangingEvent) Is Nothing) Then
-                RaiseEvent tblscanRowChanging(Me, New tblscanRowChangeEvent(CType(e.Row,tblscanRow), e.Action))
+            If (Not (Me.f2_fg_scanRowChangingEvent) Is Nothing) Then
+                RaiseEvent f2_fg_scanRowChanging(Me, New f2_fg_scanRowChangeEvent(CType(e.Row,f2_fg_scanRow), e.Action))
             End If
         End Sub
         
@@ -618,8 +660,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.tblscanRowDeletedEvent) Is Nothing) Then
-                RaiseEvent tblscanRowDeleted(Me, New tblscanRowChangeEvent(CType(e.Row,tblscanRow), e.Action))
+            If (Not (Me.f2_fg_scanRowDeletedEvent) Is Nothing) Then
+                RaiseEvent f2_fg_scanRowDeleted(Me, New f2_fg_scanRowChangeEvent(CType(e.Row,f2_fg_scanRow), e.Action))
             End If
         End Sub
         
@@ -627,14 +669,14 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.tblscanRowDeletingEvent) Is Nothing) Then
-                RaiseEvent tblscanRowDeleting(Me, New tblscanRowChangeEvent(CType(e.Row,tblscanRow), e.Action))
+            If (Not (Me.f2_fg_scanRowDeletingEvent) Is Nothing) Then
+                RaiseEvent f2_fg_scanRowDeleting(Me, New f2_fg_scanRowChangeEvent(CType(e.Row,f2_fg_scanRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemovetblscanRow(ByVal row As tblscanRow)
+        Public Sub Removef2_fg_scanRow(ByVal row As f2_fg_scanRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -661,7 +703,7 @@ Partial Public Class DataSet1
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "tblscanDataTable"
+            attribute2.FixedValue = "f2_fg_scanDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -708,26 +750,26 @@ Partial Public Class DataSet1
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class tblscanRow
+    Partial Public Class f2_fg_scanRow
         Inherits Global.System.Data.DataRow
         
-        Private tabletblscan As tblscanDataTable
+        Private tablef2_fg_scan As f2_fg_scanDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tabletblscan = CType(Me.Table,tblscanDataTable)
+            Me.tablef2_fg_scan = CType(Me.Table,f2_fg_scanDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property id() As String
             Get
-                Return CType(Me(Me.tabletblscan.idColumn),String)
+                Return CType(Me(Me.tablef2_fg_scan.idColumn),String)
             End Get
             Set
-                Me(Me.tabletblscan.idColumn) = value
+                Me(Me.tablef2_fg_scan.idColumn) = value
             End Set
         End Property
         
@@ -736,13 +778,13 @@ Partial Public Class DataSet1
         Public Property status() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.statusColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.statusColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'status' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'status' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.statusColumn) = value
+                Me(Me.tablef2_fg_scan.statusColumn) = value
             End Set
         End Property
         
@@ -751,13 +793,28 @@ Partial Public Class DataSet1
         Public Property batch() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.batchColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.batchColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'batch' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'batch' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.batchColumn) = value
+                Me(Me.tablef2_fg_scan.batchColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property qrcode() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablef2_fg_scan.qrcodeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'qrcode' in table 'f2_fg_scan' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablef2_fg_scan.qrcodeColumn) = value
             End Set
         End Property
         
@@ -766,13 +823,13 @@ Partial Public Class DataSet1
         Public Property partcode() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.partcodeColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.partcodeColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'partcode' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'partcode' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.partcodeColumn) = value
+                Me(Me.tablef2_fg_scan.partcodeColumn) = value
             End Set
         End Property
         
@@ -781,13 +838,13 @@ Partial Public Class DataSet1
         Public Property lotnumber() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.lotnumberColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.lotnumberColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'lotnumber' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'lotnumber' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.lotnumberColumn) = value
+                Me(Me.tablef2_fg_scan.lotnumberColumn) = value
             End Set
         End Property
         
@@ -796,13 +853,13 @@ Partial Public Class DataSet1
         Public Property remarks() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.remarksColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.remarksColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'remarks' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'remarks' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.remarksColumn) = value
+                Me(Me.tablef2_fg_scan.remarksColumn) = value
             End Set
         End Property
         
@@ -811,13 +868,43 @@ Partial Public Class DataSet1
         Public Property qty() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.qtyColumn),Integer)
+                    Return CType(Me(Me.tablef2_fg_scan.qtyColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'qty' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'qty' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.qtyColumn) = value
+                Me(Me.tablef2_fg_scan.qtyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property datein() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablef2_fg_scan.dateinColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'datein' in table 'f2_fg_scan' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablef2_fg_scan.dateinColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property userin() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablef2_fg_scan.userinColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'userin' in table 'f2_fg_scan' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablef2_fg_scan.userinColumn) = value
             End Set
         End Property
         
@@ -826,28 +913,13 @@ Partial Public Class DataSet1
         Public Property batchout() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.batchoutColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.batchoutColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'batchout' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'batchout' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.batchoutColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property dateout() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabletblscan.dateoutColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dateout' in table 'tblscan' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletblscan.dateoutColumn) = value
+                Me(Me.tablef2_fg_scan.batchoutColumn) = value
             End Set
         End Property
         
@@ -856,28 +928,28 @@ Partial Public Class DataSet1
         Public Property userout() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.useroutColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.useroutColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'userout' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'userout' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.useroutColumn) = value
+                Me(Me.tablef2_fg_scan.useroutColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property located() As String
+        Public Property dateout() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.locatedColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.dateoutColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'located' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'dateout' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.locatedColumn) = value
+                Me(Me.tablef2_fg_scan.dateoutColumn) = value
             End Set
         End Property
         
@@ -886,200 +958,224 @@ Partial Public Class DataSet1
         Public Property boxno() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.boxnoColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.boxnoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'boxno' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'boxno' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.boxnoColumn) = value
+                Me(Me.tablef2_fg_scan.boxnoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property fullname() As String
+        Public Property Fullname() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.fullnameColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.FullnameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'fullname' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Fullname' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.fullnameColumn) = value
+                Me(Me.tablef2_fg_scan.FullnameColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property partname() As String
+        Public Property Partname() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblscan.partnameColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.PartnameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'partname' in table 'tblscan' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Partname' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblscan.partnameColumn) = value
+                Me(Me.tablef2_fg_scan.PartnameColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsstatusNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.statusColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.statusColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetstatusNull()
-            Me(Me.tabletblscan.statusColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.statusColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsbatchNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.batchColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.batchColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetbatchNull()
-            Me(Me.tabletblscan.batchColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.batchColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsqrcodeNull() As Boolean
+            Return Me.IsNull(Me.tablef2_fg_scan.qrcodeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetqrcodeNull()
+            Me(Me.tablef2_fg_scan.qrcodeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IspartcodeNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.partcodeColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.partcodeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetpartcodeNull()
-            Me(Me.tabletblscan.partcodeColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.partcodeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IslotnumberNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.lotnumberColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.lotnumberColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetlotnumberNull()
-            Me(Me.tabletblscan.lotnumberColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.lotnumberColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsremarksNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.remarksColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.remarksColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetremarksNull()
-            Me(Me.tabletblscan.remarksColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.remarksColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsqtyNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.qtyColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.qtyColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetqtyNull()
-            Me(Me.tabletblscan.qtyColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.qtyColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsdateinNull() As Boolean
+            Return Me.IsNull(Me.tablef2_fg_scan.dateinColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetdateinNull()
+            Me(Me.tablef2_fg_scan.dateinColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsuserinNull() As Boolean
+            Return Me.IsNull(Me.tablef2_fg_scan.userinColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetuserinNull()
+            Me(Me.tablef2_fg_scan.userinColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsbatchoutNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.batchoutColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.batchoutColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetbatchoutNull()
-            Me(Me.tabletblscan.batchoutColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsdateoutNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.dateoutColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetdateoutNull()
-            Me(Me.tabletblscan.dateoutColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.batchoutColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsuseroutNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.useroutColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.useroutColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetuseroutNull()
-            Me(Me.tabletblscan.useroutColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.useroutColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IslocatedNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.locatedColumn)
+        Public Function IsdateoutNull() As Boolean
+            Return Me.IsNull(Me.tablef2_fg_scan.dateoutColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetlocatedNull()
-            Me(Me.tabletblscan.locatedColumn) = Global.System.Convert.DBNull
+        Public Sub SetdateoutNull()
+            Me(Me.tablef2_fg_scan.dateoutColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsboxnoNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.boxnoColumn)
+            Return Me.IsNull(Me.tablef2_fg_scan.boxnoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetboxnoNull()
-            Me(Me.tabletblscan.boxnoColumn) = Global.System.Convert.DBNull
+            Me(Me.tablef2_fg_scan.boxnoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsfullnameNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.fullnameColumn)
+        Public Function IsFullnameNull() As Boolean
+            Return Me.IsNull(Me.tablef2_fg_scan.FullnameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetfullnameNull()
-            Me(Me.tabletblscan.fullnameColumn) = Global.System.Convert.DBNull
+        Public Sub SetFullnameNull()
+            Me(Me.tablef2_fg_scan.FullnameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IspartnameNull() As Boolean
-            Return Me.IsNull(Me.tabletblscan.partnameColumn)
+        Public Function IsPartnameNull() As Boolean
+            Return Me.IsNull(Me.tablef2_fg_scan.PartnameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetpartnameNull()
-            Me(Me.tabletblscan.partnameColumn) = Global.System.Convert.DBNull
+        Public Sub SetPartnameNull()
+            Me(Me.tablef2_fg_scan.PartnameColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1087,16 +1183,16 @@ Partial Public Class DataSet1
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class tblscanRowChangeEvent
+    Public Class f2_fg_scanRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As tblscanRow
+        Private eventRow As f2_fg_scanRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As tblscanRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As f2_fg_scanRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1104,7 +1200,7 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As tblscanRow
+        Public ReadOnly Property Row() As f2_fg_scanRow
             Get
                 Return Me.eventRow
             End Get

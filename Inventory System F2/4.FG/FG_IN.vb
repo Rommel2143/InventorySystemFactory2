@@ -49,7 +49,7 @@ Public Class FG_IN
 
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`datein` FROM `f2_parts_scan` WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`datein` FROM `f2_fg_scan` WHERE `qrcode`='" & qrcode & "'", con)
                 dr = cmdselect.ExecuteReader
                 'CON 2 : DUPLICATE QR or GET location
                 If dr.Read = True Then
@@ -57,16 +57,16 @@ Public Class FG_IN
                     datein = dr.GetDateTime("datein")
 
                     Select Case status
-                        Case "P"
+                        Case "FG"
                             showduplicate(datein) 'duplicate
                             txtqr.Text = ""
                             txtqr.Focus()
-                        Case "W"
-                            QRisWIP() 'qr wip
+                        Case "OUT"
+                            'out
                             txtqr.Text = ""
                             txtqr.Focus()
                         Case "R"
-                            showerror("Marked as Returned to Supplier Item!")
+                            'returned
                             txtqr.Text = ""
                             txtqr.Focus()
                     End Select
@@ -75,13 +75,13 @@ Public Class FG_IN
                 Else 'CON 2 : NOT DUPLICATE
                     con.Close()
                     con.Open()
-                    Dim cmdpartcode As New MySqlCommand("SELECT `id` FROM `f2_parts_masterlist` WHERE `partcode`='" & partcode & "' and `supplier`= '" & supplier & "'", con)
+                    Dim cmdpartcode As New MySqlCommand("SELECT `id` FROM `f2_fg_masterlist` WHERE `partcode`='" & partcode & "'", con)
                     dr = cmdpartcode.ExecuteReader
                     If dr.Read = True Then
                         Dim dataid As String = dr.GetInt32("id")
                         'SAVING
-                        insert_to_scan_parts()
-                        add_to_parts(qty, dataid)
+                        insert_to_scan_fg()
+                        add_to_fg(qty, partcode)
                         refreshgrid()
                         refreshgrid2()
                         return_ok()
@@ -117,7 +117,7 @@ Public Class FG_IN
 
             Else
 
-                viewdata("SELECT `batch`, `userin`, `datein` FROM `f2_parts_scan`
+                viewdata("SELECT `batch`, `userin`, `datein` FROM `f2_fg_scan`
                          WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`= '" & batchcode.Text & "'")
                 If dr.Read = True Then
                     Label4.Visible = True
@@ -141,28 +141,26 @@ Public Class FG_IN
         PARTS_Results.BringToFront()
     End Sub
 
-    Private Sub insert_to_scan_parts()
+    Private Sub insert_to_scan_fg()
         Try
 
             con.Close()
             con.Open()
-            Dim cmdinsert As New MySqlCommand("INSERT INTO `f2_parts_scan` (`status`,
+            Dim cmdinsert As New MySqlCommand(" INSERT INTO `f2_fg_scan` (`status`,
                                                                             `batch`,
                                                                             `userin`,
                                                                             `datein`,
                                                                             `partcode`,
-                                                                            `suppliercode`,
                                                                             `qrcode`,
                                                                             `lotnumber`,
                                                                             `remarks`,
                                                                             `qty`) 
 
-                                                       VALUES ('P',
+                                                       VALUES ('FG',
                                                               '" & batch & "',
                                                               '" & idno & "',
                                                               '" & datedb & "',
                                                               '" & partcode & "',
-                                                              '" & supplier & "',
                                                               '" & qrcode & "',
                                                               '" & lotnumber & "',
                                                               '" & remarks & "',
@@ -233,8 +231,8 @@ Public Class FG_IN
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `f2_parts_scan`
-                                                    WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`='" & batch & "' and  `status`='P' ", con)
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `f2_fg_scan`
+                                                    WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`='" & batch & "' and  `status`='FG' ", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable
@@ -254,7 +252,7 @@ Public Class FG_IN
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `f2_parts_scan`
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `f2_fg_scan`
                                                     WHERE `datein`='" & datedb & "' and `batch`='" & batch & "' and  `userin`='" & idno & "'
                                                     GROUP BY partcode", con)
 
@@ -381,8 +379,8 @@ Public Class FG_IN
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        PARTS_Results.Show()
-        PARTS_Results.BringToFront()
+        FG_IN_Results.Show()
+        FG_IN_Results.BringToFront()
 
     End Sub
 End Class

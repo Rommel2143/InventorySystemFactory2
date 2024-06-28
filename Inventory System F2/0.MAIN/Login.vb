@@ -41,12 +41,7 @@ Public Class Login
 
         End Try
     End Sub
-    Public Sub getversion()
 
-    End Sub
-    Private Sub txtbarcode_TextChanged(sender As Object, e As EventArgs) Handles txtbarcode.TextChanged
-
-    End Sub
 
     Private Sub txtbarcode_KeyDown(sender As Object, e As KeyEventArgs) Handles txtbarcode.KeyDown
 

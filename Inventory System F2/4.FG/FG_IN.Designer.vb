@@ -480,6 +480,7 @@ Partial Class FG_IN
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FG_IN"
         Me.Text = "FG_IN"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.datagrid2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2GroupBox1.ResumeLayout(False)
