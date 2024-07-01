@@ -6,17 +6,20 @@ Public Class Add_item
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
 
         Try
-
-            con.Close()
-            con.Open()
-            Dim cmdinsert As New MySqlCommand(" INSERT INTO `f2_parts_masterlist`
+            If P_partcode.Text = "" Then
+                MessageBox.Show("Scan QR first!")
+            Else
+                con.Close()
+                con.Open()
+                Dim cmdinsert As New MySqlCommand(" INSERT INTO `f2_parts_masterlist`
 (`partname`, `partcode`, `supplier`, `stockf2`, `wipstockf2`) 
 VALUES ('" & P_Partname.Text & "','" & P_partcode.Text & "','" & P_supplier.Text & "','0','0')", con)
-            cmdinsert.ExecuteNonQuery()
-            MessageBox.Show("Partcode Added successfully!")
-            con.Close()
-            txtqr.Text = ""
-            txtqr.Focus()
+                cmdinsert.ExecuteNonQuery()
+                MessageBox.Show("Partcode Added successfully!")
+                con.Close()
+                txtqr.Text = ""
+                txtqr.Focus()
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
@@ -54,24 +57,30 @@ VALUES ('" & P_Partname.Text & "','" & P_partcode.Text & "','" & P_supplier.Text
 
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-        Try
+        If fgcode.Text = "" Then
+            MessageBox.Show("Scan QR first!")
+        Else
 
-            con.Close()
-            con.Open()
-            Dim cmdinsert As New MySqlCommand(" INSERT INTO `f2_fg_masterlist`
+
+            Try
+
+                con.Close()
+                con.Open()
+                Dim cmdinsert As New MySqlCommand(" INSERT INTO `f2_fg_masterlist`
 (`partname`, `partcode`, `stockf2`) 
 VALUES ('" & fg_partname.Text & "','" & fgcode.Text & "','0')", con)
-            cmdinsert.ExecuteNonQuery()
-            MessageBox.Show("FG Added successfully!")
-            con.Close()
-            txtqr.Text = ""
-            txtqr.Focus()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            con.Close()
-        End Try
+                cmdinsert.ExecuteNonQuery()
+                MessageBox.Show("FG Added successfully!")
+                con.Close()
+                txtqr.Text = ""
+                txtqr.Focus()
 
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            Finally
+                con.Close()
+            End Try
+        End If
     End Sub
 
     Private Sub Guna2TextBox2_TextChanged_1(sender As Object, e As EventArgs)

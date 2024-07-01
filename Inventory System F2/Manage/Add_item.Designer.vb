@@ -95,6 +95,7 @@ Partial Class Add_item
         Me.P_partcode.Name = "P_partcode"
         Me.P_partcode.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.P_partcode.PlaceholderText = "Enter Partcode..."
+        Me.P_partcode.ReadOnly = True
         Me.P_partcode.SelectedText = ""
         Me.P_partcode.Size = New System.Drawing.Size(139, 36)
         Me.P_partcode.TabIndex = 5
@@ -175,6 +176,7 @@ Partial Class Add_item
         Me.P_supplier.Name = "P_supplier"
         Me.P_supplier.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.P_supplier.PlaceholderText = "Enter Partname..."
+        Me.P_supplier.ReadOnly = True
         Me.P_supplier.SelectedText = ""
         Me.P_supplier.Size = New System.Drawing.Size(139, 36)
         Me.P_supplier.TabIndex = 10
@@ -330,6 +332,7 @@ Partial Class Add_item
         Me.fgcode.Name = "fgcode"
         Me.fgcode.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.fgcode.PlaceholderText = "Enter Partcode..."
+        Me.fgcode.ReadOnly = True
         Me.fgcode.SelectedText = ""
         Me.fgcode.Size = New System.Drawing.Size(139, 36)
         Me.fgcode.TabIndex = 5
