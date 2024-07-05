@@ -159,7 +159,7 @@ Public Class PROD_Scan
 
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status` FROM `f2_parts_scan` WHERE `qrcode`='" & txtpartqr.Text & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status` FROM  WHERE `qrcode`='" & txtpartqr.Text & "'", con)
                 dr = cmdselect.ExecuteReader
 
                 If dr.Read = True Then

@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ptif1-ds\SHARED\it\system\Inventorysystem-F2\</UpdateUrl>
     <PublisherName>Rommel Magnaye</PublisherName>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -79,7 +79,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>INVENTORY f2.ico</ApplicationIcon>
+    <ApplicationIcon>Inventory_F2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -199,6 +199,18 @@
     <Compile Include="1.PARTS\PARTS_IN.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="1.PARTS\PARTS_IN_Results.designer.vb">
+      <DependentUpon>PARTS_IN_Results.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1.PARTS\PARTS_IN_Results.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.WIP\WIP_IN_Results.Designer.vb">
+      <DependentUpon>WIP_IN_Results.vb</DependentUpon>
+    </Compile>
+    <Compile Include="2.WIP\WIP_IN_Results.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="2.WIP\WIP_Return.designer.vb">
       <DependentUpon>WIP_Return.vb</DependentUpon>
     </Compile>
@@ -293,12 +305,6 @@
     <Compile Include="0.MAIN\Register_PC.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1.PARTS\PARTS_Results.designer.vb">
-      <DependentUpon>PARTS_Results.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1.PARTS\PARTS_Results.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="0.MAIN\sub_FRAME.designer.vb">
       <DependentUpon>sub_FRAME.vb</DependentUpon>
     </Compile>
@@ -309,12 +315,6 @@
       <DependentUpon>suggest_improvent.vb</DependentUpon>
     </Compile>
     <Compile Include="0.MAIN\suggest_improvent.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="2.WIP\WIP_Results.Designer.vb">
-      <DependentUpon>WIP_Results.vb</DependentUpon>
-    </Compile>
-    <Compile Include="2.WIP\WIP_Results.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="2.WIP\WIP_In.designer.vb">
@@ -337,6 +337,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="1.PARTS\PARTS_IN.resx">
       <DependentUpon>PARTS_IN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1.PARTS\PARTS_IN_Results.resx">
+      <DependentUpon>PARTS_IN_Results.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.WIP\WIP_IN_Results.resx">
+      <DependentUpon>WIP_IN_Results.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2.WIP\WIP_Return.resx">
       <DependentUpon>WIP_Return.vb</DependentUpon>
@@ -383,17 +389,11 @@
     <EmbeddedResource Include="0.MAIN\Register_PC.resx">
       <DependentUpon>Register_PC.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1.PARTS\PARTS_Results.resx">
-      <DependentUpon>PARTS_Results.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="0.MAIN\sub_FRAME.resx">
       <DependentUpon>sub_FRAME.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="0.MAIN\suggest_improvent.resx">
       <DependentUpon>suggest_improvent.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="2.WIP\WIP_Results.resx">
-      <DependentUpon>WIP_Results.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2.WIP\WIP_In.resx">
       <DependentUpon>WIP_In.vb</DependentUpon>
@@ -447,6 +447,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="INVENTORY f2.ico" />
+    <Content Include="Inventory_F2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

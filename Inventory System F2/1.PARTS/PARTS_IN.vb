@@ -49,7 +49,7 @@ Public Class Parts_In
 
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`datein` FROM `f2_parts_scan` WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`datein` FROM  WHERE `qrcode`='" & qrcode & "'", con)
                 dr = cmdselect.ExecuteReader
                 'CON 2 : DUPLICATE QR or GET location
                 If dr.Read = True Then
@@ -117,7 +117,7 @@ Public Class Parts_In
 
             Else
 
-                viewdata("SELECT `batch`, `userin`, `datein` FROM `f2_parts_scan`
+                viewdata("SELECT `batch`, `userin`, `datein` FROM 
                          WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`= '" & batchcode.Text & "'")
                 If dr.Read = True Then
                     Label4.Visible = True
@@ -137,8 +137,8 @@ Public Class Parts_In
     End Sub
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs)
-        PARTS_Results.Show()
-        PARTS_Results.BringToFront()
+        Parts_IN_Results.Show()
+        Parts_IN_Results.BringToFront()
     End Sub
 
     Private Sub insert_to_scan_parts()
@@ -146,7 +146,7 @@ Public Class Parts_In
 
             con.Close()
             con.Open()
-            Dim cmdinsert As New MySqlCommand("INSERT INTO `f2_parts_scan` (`status`,
+            Dim cmdinsert As New MySqlCommand("INSERT INTO  (`status`,
                                                                             `batch`,
                                                                             `userin`,
                                                                             `datein`,
@@ -233,7 +233,7 @@ Public Class Parts_In
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `f2_parts_scan`
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM 
                                                     WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`='" & batch & "' and  `status`='P' ", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
@@ -254,7 +254,7 @@ Public Class Parts_In
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `f2_parts_scan`
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM 
                                                     WHERE `datein`='" & datedb & "' and `batch`='" & batch & "' and  `userin`='" & idno & "'
                                                     GROUP BY partcode", con)
 
@@ -302,7 +302,7 @@ Public Class Parts_In
 
                     con.Close()
                     con.Open()
-                    Dim cmddelete As New MySqlCommand("DELETE FROM `f2_parts_scan` WHERE `id`= '" & itemid & "'", con)
+                    Dim cmddelete As New MySqlCommand("DELETE FROM  WHERE `id`= '" & itemid & "'", con)
                     cmddelete.ExecuteNonQuery()
 
 
@@ -353,8 +353,8 @@ Public Class Parts_In
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `tblscan`
-                                                     WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')", con)
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `f2_parts_scan`
+                                                     WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable
@@ -364,8 +364,8 @@ Public Class Parts_In
 
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `tblscan`
-                                                  WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')               
+            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `f2_parts_scan`
+                                                  WHERE `datein`='" & datedb & "'  and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')               
                                                   GROUP BY partcode", con)
 
             Dim da2 As New MySqlDataAdapter(cmdrefreshgrid2)
@@ -381,8 +381,8 @@ Public Class Parts_In
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        PARTS_Results.Show()
-        PARTS_Results.BringToFront()
+        PARTS_IN_Results.Show()
+        PARTS_IN_Results.BringToFront()
 
     End Sub
 End Class

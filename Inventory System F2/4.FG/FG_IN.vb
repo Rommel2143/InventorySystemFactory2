@@ -136,10 +136,7 @@ Public Class FG_IN
 
     End Sub
 
-    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs)
-        PARTS_Results.Show()
-        PARTS_Results.BringToFront()
-    End Sub
+
 
     Private Sub insert_to_scan_fg()
         Try
@@ -300,7 +297,7 @@ Public Class FG_IN
 
                     con.Close()
                     con.Open()
-                    Dim cmddelete As New MySqlCommand("DELETE FROM `f2_parts_scan` WHERE `id`= '" & itemid & "'", con)
+                    Dim cmddelete As New MySqlCommand("DELETE FROM  WHERE `id`= '" & itemid & "'", con)
                     cmddelete.ExecuteNonQuery()
 
 

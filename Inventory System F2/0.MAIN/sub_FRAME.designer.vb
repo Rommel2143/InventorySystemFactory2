@@ -34,20 +34,20 @@ Partial Class sub_FRAME
         Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SCANWIPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SCANFGToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QRCheckerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QRCheckerToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockMonitoringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QRCheckerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QRCheckerToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockMonitoringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.userstrip = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SuggestToImproveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeviceInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -55,7 +55,7 @@ Partial Class sub_FRAME
         '
         Me.MenuStrip1.AutoSize = False
         Me.MenuStrip1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.ToolStripMenuItem1, Me.ToolStripMenuItem3, Me.QRCheckerToolStripMenuItem, Me.ToolStripMenuItem5, Me.userstrip, Me.ManageToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.ToolStripMenuItem1, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5, Me.QRCheckerToolStripMenuItem, Me.userstrip, Me.ManageToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -134,29 +134,6 @@ Partial Class sub_FRAME
         Me.SCANFGToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.SCANFGToolStripMenuItem.Text = "SCAN FG"
         '
-        'QRCheckerToolStripMenuItem
-        '
-        Me.QRCheckerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QRCheckerToolStripMenuItem1, Me.StockMonitoringToolStripMenuItem})
-        Me.QRCheckerToolStripMenuItem.Image = CType(resources.GetObject("QRCheckerToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.QRCheckerToolStripMenuItem.Name = "QRCheckerToolStripMenuItem"
-        Me.QRCheckerToolStripMenuItem.Size = New System.Drawing.Size(116, 37)
-        Me.QRCheckerToolStripMenuItem.Text = "Monitoring"
-        Me.QRCheckerToolStripMenuItem.Visible = False
-        '
-        'QRCheckerToolStripMenuItem1
-        '
-        Me.QRCheckerToolStripMenuItem1.Image = CType(resources.GetObject("QRCheckerToolStripMenuItem1.Image"), System.Drawing.Image)
-        Me.QRCheckerToolStripMenuItem1.Name = "QRCheckerToolStripMenuItem1"
-        Me.QRCheckerToolStripMenuItem1.Size = New System.Drawing.Size(205, 22)
-        Me.QRCheckerToolStripMenuItem1.Text = "QR Checker"
-        '
-        'StockMonitoringToolStripMenuItem
-        '
-        Me.StockMonitoringToolStripMenuItem.Image = CType(resources.GetObject("StockMonitoringToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.StockMonitoringToolStripMenuItem.Name = "StockMonitoringToolStripMenuItem"
-        Me.StockMonitoringToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
-        Me.StockMonitoringToolStripMenuItem.Text = "Stock Monitoring"
-        '
         'ToolStripMenuItem5
         '
         Me.ToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.ToolStripMenuItem7, Me.ToolStripMenuItem8})
@@ -185,6 +162,29 @@ Partial Class sub_FRAME
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
         Me.ToolStripMenuItem8.Size = New System.Drawing.Size(185, 22)
         Me.ToolStripMenuItem8.Text = "Return to TRC"
+        '
+        'QRCheckerToolStripMenuItem
+        '
+        Me.QRCheckerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QRCheckerToolStripMenuItem1, Me.StockMonitoringToolStripMenuItem})
+        Me.QRCheckerToolStripMenuItem.Image = CType(resources.GetObject("QRCheckerToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.QRCheckerToolStripMenuItem.Name = "QRCheckerToolStripMenuItem"
+        Me.QRCheckerToolStripMenuItem.Size = New System.Drawing.Size(116, 37)
+        Me.QRCheckerToolStripMenuItem.Text = "Monitoring"
+        '
+        'QRCheckerToolStripMenuItem1
+        '
+        Me.QRCheckerToolStripMenuItem1.Image = CType(resources.GetObject("QRCheckerToolStripMenuItem1.Image"), System.Drawing.Image)
+        Me.QRCheckerToolStripMenuItem1.Name = "QRCheckerToolStripMenuItem1"
+        Me.QRCheckerToolStripMenuItem1.Size = New System.Drawing.Size(205, 22)
+        Me.QRCheckerToolStripMenuItem1.Text = "QR Checker"
+        '
+        'StockMonitoringToolStripMenuItem
+        '
+        Me.StockMonitoringToolStripMenuItem.Image = CType(resources.GetObject("StockMonitoringToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.StockMonitoringToolStripMenuItem.Name = "StockMonitoringToolStripMenuItem"
+        Me.StockMonitoringToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.StockMonitoringToolStripMenuItem.Text = "Stock Monitoring"
+        Me.StockMonitoringToolStripMenuItem.Visible = False
         '
         'userstrip
         '
@@ -233,6 +233,13 @@ Partial Class sub_FRAME
         Me.DeviceInfoToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.DeviceInfoToolStripMenuItem.Text = "Device info."
         '
+        'ManageToolStripMenuItem
+        '
+        Me.ManageToolStripMenuItem.Image = CType(resources.GetObject("ManageToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ManageToolStripMenuItem.Name = "ManageToolStripMenuItem"
+        Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(95, 37)
+        Me.ManageToolStripMenuItem.Text = "Manage"
+        '
         'Panel1
         '
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -240,12 +247,6 @@ Partial Class sub_FRAME
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1208, 636)
         Me.Panel1.TabIndex = 12
-        '
-        'ManageToolStripMenuItem
-        '
-        Me.ManageToolStripMenuItem.Name = "ManageToolStripMenuItem"
-        Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(79, 37)
-        Me.ManageToolStripMenuItem.Text = "Manage"
         '
         'sub_FRAME
         '

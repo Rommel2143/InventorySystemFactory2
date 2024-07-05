@@ -63,7 +63,7 @@ ORDER BY
             con.Close()
             con.Open()
             Dim cmdselect As New MySqlCommand("Select distinct ts.`batchout` FROM `f2_fg_scan` ts
-                                              Left Join F2_scanoperator_is tsoout ON ts.userout = tsoout.IDno
+                                              Left Join f2_scanoperator_is tsoout ON ts.userout = tsoout.IDno
                                                
                                                 WHERE `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `fullname`='" & cmbuser.Text & "'", con)
             dr = cmdselect.ExecuteReader

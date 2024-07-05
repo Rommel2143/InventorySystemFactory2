@@ -41,7 +41,7 @@ Public Class WIP_Return
                     'CON 2: DUPLICATION
                     con.Close()
                     con.Open()
-                    Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`qty` FROM `f2_parts_scan` WHERE `qrcode`='" & qrcode & "'", con)
+                    Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`qty` FROM  WHERE `qrcode`='" & qrcode & "'", con)
                     dr = cmdselect.ExecuteReader
                     If dr.Read = True Then
                         status = dr.GetString("status")
@@ -90,7 +90,7 @@ Public Class WIP_Return
 
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`qty` FROM `f2_parts_scan` WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`qty` FROM  WHERE `qrcode`='" & qrcode & "'", con)
                 dr = cmdselect.ExecuteReader
                 If dr.Read = True Then
                     status = dr.GetString("status")
@@ -162,7 +162,7 @@ Public Class WIP_Return
         Try
             con.Close()
             con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE `f2_parts_scan` SET `status`='P', `wipreturns`=(`wipreturns`+ 1 )
+            Dim cmdupdate As New MySqlCommand("UPDATE  SET `status`='P', `wipreturns`=(`wipreturns`+ 1 )
             WHERE `qrcode`='" & qrcode & "'", con)
             cmdupdate.ExecuteNonQuery()
 
@@ -180,7 +180,7 @@ Public Class WIP_Return
         Try
             con.Close()
             con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE `f2_parts_scan` SET `qty`='" & txt_qty.Text & "',`status`='P', `wipreturns`=(`wipreturns`+ 1 )
+            Dim cmdupdate As New MySqlCommand("UPDATE  SET `qty`='" & txt_qty.Text & "',`status`='P', `wipreturns`=(`wipreturns`+ 1 )
             WHERE `qrcode`='" & qrcode & "'", con)
             cmdupdate.ExecuteNonQuery()
 

@@ -49,7 +49,7 @@ Public Class WIP_In
 
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`dateout`,`qty` FROM `f2_parts_scan` WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`dateout`,`qty` FROM  WHERE `qrcode`='" & qrcode & "'", con)
                 dr = cmdselect.ExecuteReader
                 'CON 2 : HAS RECORD
                 If dr.Read = True Then
@@ -120,7 +120,7 @@ Public Class WIP_In
 
             Else
 
-                viewdata("SELECT `batch`, `userout`, `dateout` FROM `f2_parts_scan`
+                viewdata("SELECT `batch`, `userout`, `dateout` FROM 
                          WHERE `dateout`='" & datedb & "' and `userout`='" & idno & "' and `batchout`= '" & batchcode.Text & "'")
                 If dr.Read = True Then
                     Label4.Visible = True
@@ -140,8 +140,7 @@ Public Class WIP_In
     End Sub
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs)
-        PARTS_Results.Show()
-        PARTS_Results.BringToFront()
+
     End Sub
 
 
@@ -182,7 +181,7 @@ Public Class WIP_In
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batchout`,`qrcode`,`partcode`, `lotnumber`, `remarks`, `qty` FROM `f2_parts_scan`
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batchout`,`qrcode`,`partcode`, `lotnumber`, `remarks`, `qty` FROM 
                                                     WHERE `dateout`='" & datedb & "' and `userout`='" & idno & "' and `batchout`='" & batch & "' and  `status`='W' ", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
@@ -203,7 +202,7 @@ Public Class WIP_In
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `f2_parts_scan`
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM 
                                                     WHERE `dateout`='" & datedb & "' and `batchout`='" & batch & "' and  `userout`='" & idno & "'
                                                     GROUP BY partcode", con)
 
@@ -263,7 +262,7 @@ Public Class WIP_In
     Private Sub update_to_WIP()
         con.Close()
         con.Open()
-        Dim cmdupdate As New MySqlCommand("UPDATE `f2_parts_scan` SET   `status`='W',
+        Dim cmdupdate As New MySqlCommand("UPDATE  SET   `status`='W',
                                                                         `batchout`='" & batch & "',
                                                                         `dateout`= '" & datedb & "',
                                                                         `userout`='" & idno & "' 
@@ -272,13 +271,14 @@ Public Class WIP_In
         con.Close()
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        PARTS_Results.Show()
-        PARTS_Results.BringToFront()
 
-    End Sub
 
     Private Sub txtqr_TextChanged(sender As Object, e As EventArgs) Handles txtqr.TextChanged
 
+    End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        WIP_IN_Results.Show()
+        WIP_IN_Results.BringToFront()
     End Sub
 End Class

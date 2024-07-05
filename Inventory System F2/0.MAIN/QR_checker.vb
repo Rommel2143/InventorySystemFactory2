@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class QR_checker
+    Dim checked As String = "P"
     Private Sub txtqr_TextChanged(sender As Object, e As EventArgs) Handles txtqr.TextChanged
 
     End Sub
@@ -14,18 +15,35 @@ Public Class QR_checker
     End Sub
     Private Sub processQRcode(qrcode As String)
         Try
+            Select Case checked
+                Case "P"
+                    refreshgridparts()
+                Case "F"
+                    refreshgridfg()
 
-            refreshgrid()
+            End Select
+
             txtqr.Clear()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-    Private Sub refreshgrid()
+    Public Sub showerror(text As String)
+
+        Try
+            labelerror.Visible = True
+            texterror.Text = text
+            sounderror()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub refreshgridparts()
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT * from `tblscan`
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT * from `f2_parts_scan`
                                                     WHERE `qrcode`='" & txtqr.Text & "'", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
@@ -40,5 +58,33 @@ Public Class QR_checker
 
             con.Close()
         End Try
+    End Sub
+    Private Sub refreshgridfg()
+        Try
+            con.Close()
+            con.Open()
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT * from `f2_fg_scan`
+                                                    WHERE `qrcode`='" & txtqr.Text & "'", con)
+
+            Dim da As New MySqlDataAdapter(cmdrefreshgrid)
+            Dim dt As New DataTable
+            da.Fill(dt)
+            datagrid1.DataSource = dt
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub radio_parts_CheckedChanged(sender As Object, e As EventArgs) Handles radio_parts.CheckedChanged
+        checked = "P"
+    End Sub
+
+    Private Sub FG_CheckedChanged(sender As Object, e As EventArgs) Handles FG.CheckedChanged
+        checked = "F"
     End Sub
 End Class

@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class FG_IN_Results
+Public Class WIP_IN_Results
     Dim itempartcode As String
 
     Private Sub scan_results_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -26,13 +26,13 @@ Public Class FG_IN_Results
             con.Close()
             con.Open()
             Dim cmdrefreshgrid As New MySqlCommand("SELECT ts.`qrcode`,ts.`partcode`,ts.`lotnumber`, ts.`remarks`, ts.`qty`
-                                                    FROM `f2_fg_scan` ts
-                                                    LEFT JOIN f2_scanoperator_is so ON ts.userin = so.IDno
-                                                    WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
+                                                    FROM `f2_parts_scan` ts
+                                                    LEFT JOIN f2_scanoperator_is so ON ts.userout = so.IDno
+                                                    WHERE       `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
                                                     and `partcode`='" & itempartcode & "'
                                                             
                                                             and `Fullname`='" & cmbuser.Text & "'  
-                                                            and `batch`='" & cmbbatchin.Text & "' ", con)
+                                                            and `batchout`='" & cmbbatchin.Text & "' ", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable
@@ -51,12 +51,12 @@ Public Class FG_IN_Results
             con.Close()
             con.Open()
             Dim cmdrefreshgrid As New MySqlCommand("SELECT ts.`qrcode`,ts.`partcode`,ts.`lotnumber`, ts.`remarks`, ts.`qty`
-                                                    FROM `f2_fg_scan` ts
-                                                    LEFT JOIN f2_scanoperator_is so ON ts.userin = so.IDno
-                                                    WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
+                                                    FROM `f2_parts_scan` ts
+                                                    LEFT JOIN f2_scanoperator_is so ON ts.userout = so.IDno
+                                                    WHERE       `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
                                                            
                                                             and `Fullname`='" & cmbuser.Text & "'  
-                                                            and `batch`='" & cmbbatchin.Text & "' ", con)
+                                                            and `batchout`='" & cmbbatchin.Text & "' ", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable
@@ -67,12 +67,12 @@ Public Class FG_IN_Results
             con.Close()
             con.Open()
             Dim cmdrefreshgrid2 As New MySqlCommand("SELECT ts.`partcode` AS Partcode, SUM(`qty`) AS TOTAL 
-                                                  FROM `f2_fg_scan` ts
-                                                    LEFT JOIN f2_scanoperator_is so ON ts.userin = so.IDno
-                                                    WHERE       `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
+                                                  FROM `f2_parts_scan` ts
+                                                    LEFT JOIN f2_scanoperator_is so ON ts.userout = so.IDno
+                                                    WHERE       `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' 
                                                            
                                                             and `Fullname`='" & cmbuser.Text & "'  
-                                                            and `batch`='" & cmbbatchin.Text & "'          
+                                                            and `batchout`='" & cmbbatchin.Text & "'          
                                                   GROUP BY partcode", con)
 
             Dim da2 As New MySqlDataAdapter(cmdrefreshgrid2)
@@ -91,9 +91,9 @@ Public Class FG_IN_Results
         Try
             con.Close()
             con.Open()
-            Dim cmdselect As New MySqlCommand("Select distinct `fullname` FROM `f2_fg_scan`
-                                                INNER JOIN `f2_scanoperator_is` ON `userin` = `IDno`
-                                                WHERE `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "'", con)
+            Dim cmdselect As New MySqlCommand("Select distinct `fullname` FROM `f2_parts_scan`
+                                                INNER JOIN `f2_scanoperator_is` ON `userout` = `IDno`
+                                                WHERE `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "'", con)
             dr = cmdselect.ExecuteReader
             cmbuser.Items.Clear()
             While (dr.Read())
@@ -108,14 +108,14 @@ Public Class FG_IN_Results
         Try
             con.Close()
             con.Open()
-            Dim cmdselect As New MySqlCommand("Select distinct ts.`batch` FROM `f2_fg_scan` ts
-                                              Left Join f2_scanoperator_is tsoout ON ts.userin = tsoout.IDno
+            Dim cmdselect As New MySqlCommand("Select distinct ts.`batchout` FROM `f2_parts_scan` ts
+                                              Left Join f2_scanoperator_is tsoout ON ts.userout = tsoout.IDno
                                                
-                                                WHERE `datein`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `fullname`='" & cmbuser.Text & "'", con)
+                                                WHERE `dateout`='" & dtpicker.Value.ToString("yyyy-MM-dd") & "' and `fullname`='" & cmbuser.Text & "'", con)
             dr = cmdselect.ExecuteReader
             cmbbatchin.Items.Clear()
             While (dr.Read())
-                cmbbatchin.Items.Add(dr.GetString("batch"))
+                cmbbatchin.Items.Add(dr.GetString("batchout"))
             End While
         Catch ex As Exception
             MessageBox.Show(ex.Message)

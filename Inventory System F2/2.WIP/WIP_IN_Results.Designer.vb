@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class WIP_Results
+Partial Class WIP_IN_Results
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -32,10 +32,12 @@ Partial Class WIP_Results
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cmbbatchin = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.dtpicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmbuser = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.cmbbatchin = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.datagrid2 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,7 +76,7 @@ Partial Class WIP_Results
         DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.datagrid1.DefaultCellStyle = DataGridViewCellStyle11
         Me.datagrid1.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.Location = New System.Drawing.Point(12, 160)
+        Me.datagrid1.Location = New System.Drawing.Point(52, 253)
         Me.datagrid1.Name = "datagrid1"
         Me.datagrid1.ReadOnly = True
         Me.datagrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -87,7 +89,7 @@ Partial Class WIP_Results
         DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.datagrid1.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.datagrid1.RowHeadersVisible = False
-        Me.datagrid1.Size = New System.Drawing.Size(314, 325)
+        Me.datagrid1.Size = New System.Drawing.Size(314, 257)
         Me.datagrid1.TabIndex = 5
         Me.datagrid1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.datagrid1.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -116,31 +118,64 @@ Partial Class WIP_Results
         Me.Guna2Panel3.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel3.BorderColor = System.Drawing.Color.Gray
         Me.Guna2Panel3.BorderRadius = 15
-        Me.Guna2Panel3.Controls.Add(Me.Label4)
-        Me.Guna2Panel3.Controls.Add(Me.cmbbatchin)
         Me.Guna2Panel3.Controls.Add(Me.dtpicker)
+        Me.Guna2Panel3.Controls.Add(Me.Label4)
+        Me.Guna2Panel3.Controls.Add(Me.cmbuser)
+        Me.Guna2Panel3.Controls.Add(Me.cmbbatchin)
         Me.Guna2Panel3.Controls.Add(Me.Label1)
+        Me.Guna2Panel3.Controls.Add(Me.Label2)
         Me.Guna2Panel3.CustomBorderColor = System.Drawing.Color.White
         Me.Guna2Panel3.CustomBorderThickness = New System.Windows.Forms.Padding(1, 1, 1, 0)
         Me.Guna2Panel3.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel3.Location = New System.Drawing.Point(12, 12)
+        Me.Guna2Panel3.Location = New System.Drawing.Point(52, 37)
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.Guna2Panel3.ShadowDecoration.BorderRadius = 20
         Me.Guna2Panel3.ShadowDecoration.Color = System.Drawing.Color.Silver
         Me.Guna2Panel3.ShadowDecoration.Depth = 20
         Me.Guna2Panel3.ShadowDecoration.Enabled = True
-        Me.Guna2Panel3.Size = New System.Drawing.Size(314, 142)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(314, 210)
         Me.Guna2Panel3.TabIndex = 4
+        '
+        'dtpicker
+        '
+        Me.dtpicker.Checked = True
+        Me.dtpicker.CustomFormat = "MMMM-dd-yyyy"
+        Me.dtpicker.FillColor = System.Drawing.Color.DodgerBlue
+        Me.dtpicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.dtpicker.ForeColor = System.Drawing.Color.White
+        Me.dtpicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpicker.Location = New System.Drawing.Point(32, 20)
+        Me.dtpicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.dtpicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.dtpicker.Name = "dtpicker"
+        Me.dtpicker.Size = New System.Drawing.Size(223, 44)
+        Me.dtpicker.TabIndex = 9
+        Me.dtpicker.Value = New Date(2024, 4, 24, 9, 23, 3, 263)
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(18, 85)
+        Me.Label4.Location = New System.Drawing.Point(29, 145)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(41, 13)
-        Me.Label4.TabIndex = 9
+        Me.Label4.TabIndex = 13
         Me.Label4.Text = "Batch :"
+        '
+        'cmbuser
+        '
+        Me.cmbuser.BackColor = System.Drawing.Color.Transparent
+        Me.cmbuser.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbuser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbuser.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbuser.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbuser.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.cmbuser.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbuser.ItemHeight = 30
+        Me.cmbuser.Location = New System.Drawing.Point(32, 92)
+        Me.cmbuser.Name = "cmbuser"
+        Me.cmbuser.Size = New System.Drawing.Size(223, 36)
+        Me.cmbuser.TabIndex = 8
         '
         'cmbbatchin
         '
@@ -152,36 +187,30 @@ Partial Class WIP_Results
         Me.cmbbatchin.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmbbatchin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbbatchin.ItemHeight = 30
-        Me.cmbbatchin.Location = New System.Drawing.Point(61, 85)
+        Me.cmbbatchin.Location = New System.Drawing.Point(32, 161)
         Me.cmbbatchin.Name = "cmbbatchin"
         Me.cmbbatchin.Size = New System.Drawing.Size(223, 36)
-        Me.cmbbatchin.TabIndex = 8
-        '
-        'dtpicker
-        '
-        Me.dtpicker.Checked = True
-        Me.dtpicker.CustomFormat = "MMMM-dd-yyyy"
-        Me.dtpicker.FillColor = System.Drawing.Color.DodgerBlue
-        Me.dtpicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.dtpicker.ForeColor = System.Drawing.Color.White
-        Me.dtpicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpicker.Location = New System.Drawing.Point(61, 21)
-        Me.dtpicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.dtpicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.dtpicker.Name = "dtpicker"
-        Me.dtpicker.Size = New System.Drawing.Size(223, 44)
-        Me.dtpicker.TabIndex = 4
-        Me.dtpicker.Value = New Date(2024, 4, 24, 9, 23, 3, 263)
+        Me.cmbbatchin.TabIndex = 12
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(18, 21)
+        Me.Label1.Location = New System.Drawing.Point(29, 4)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(37, 13)
-        Me.Label1.TabIndex = 5
+        Me.Label1.TabIndex = 10
         Me.Label1.Text = "Date :"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(29, 76)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(36, 13)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "User :"
         '
         'datagrid2
         '
@@ -211,7 +240,7 @@ Partial Class WIP_Results
         DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.datagrid2.DefaultCellStyle = DataGridViewCellStyle15
         Me.datagrid2.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid2.Location = New System.Drawing.Point(332, 12)
+        Me.datagrid2.Location = New System.Drawing.Point(372, 37)
         Me.datagrid2.Name = "datagrid2"
         Me.datagrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -249,23 +278,23 @@ Partial Class WIP_Results
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Guna2Panel1.Controls.Add(Me.datagrid1)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Panel3)
         Me.Guna2Panel1.Controls.Add(Me.datagrid2)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(11, 11)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(888, 501)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(984, 624)
         Me.Guna2Panel1.TabIndex = 8
         '
-        'WIP_Results
+        'WIP_IN_Results
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(910, 523)
+        Me.ClientSize = New System.Drawing.Size(984, 624)
         Me.Controls.Add(Me.Guna2Panel1)
-        Me.Name = "WIP_Results"
-        Me.Text = "WIP_Results"
+        Me.Name = "WIP_IN_Results"
+        Me.Text = "WIP_IN_Results"
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
@@ -277,10 +306,12 @@ Partial Class WIP_Results
 
     Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Label4 As Label
-    Friend WithEvents cmbbatchin As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents dtpicker As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cmbuser As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents cmbbatchin As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
     Friend WithEvents datagrid2 As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
 End Class
