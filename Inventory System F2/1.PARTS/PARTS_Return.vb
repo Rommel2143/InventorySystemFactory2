@@ -48,7 +48,7 @@ Public Class PARTS_Return
                 'CON 2: DUPLICATION
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status` FROM  WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status` FROM `f2_parts_scan` WHERE `qrcode`='" & qrcode & "'", con)
                 dr = cmdselect.ExecuteReader
                 If dr.Read = True Then
                     status = dr.GetString("status")
@@ -112,7 +112,7 @@ Public Class PARTS_Return
         Try
             con.Close()
             con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE  SET `status`='R'
+            Dim cmdupdate As New MySqlCommand("UPDATE `f2_parts_scan` SET `status`='R'
                                                               WHERE `qrcode`='" & qrcode & "'", con)
             cmdupdate.ExecuteNonQuery()
 

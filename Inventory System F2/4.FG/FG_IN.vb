@@ -297,7 +297,7 @@ Public Class FG_IN
 
                     con.Close()
                     con.Open()
-                    Dim cmddelete As New MySqlCommand("DELETE FROM  WHERE `id`= '" & itemid & "'", con)
+                    Dim cmddelete As New MySqlCommand("DELETE FROM `f2_fg_scan` WHERE `id`= '" & itemid & "'", con)
                     cmddelete.ExecuteNonQuery()
 
 
@@ -316,23 +316,7 @@ Public Class FG_IN
             con.Close()
         End Try
     End Sub
-    Private Sub deduct_to_stock()
-        Try
 
-            con.Close()
-            con.Open()
-            Dim cmdupdate As New MySqlCommand("UPDATE `tblmaster` SET `stockF2`= (`stockF2`-" & itemqty & ") WHERE `partcode`='" & itempartcode & "'", con)
-            cmdupdate.ExecuteNonQuery()
-
-
-
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            con.Close()
-        End Try
-    End Sub
 
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
 
@@ -348,8 +332,8 @@ Public Class FG_IN
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `tblscan`
-                                                     WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')", con)
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `f2_fg_scan`
+                                                     WHERE `datein`='" & datedb & "'and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable
@@ -359,8 +343,8 @@ Public Class FG_IN
 
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `tblscan`
-                                                  WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')               
+            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `f2_fg_scan`
+                                                  WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')               
                                                   GROUP BY partcode", con)
 
             Dim da2 As New MySqlDataAdapter(cmdrefreshgrid2)

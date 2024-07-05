@@ -49,7 +49,7 @@ Public Class WIP_In
 
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`dateout`,`qty` FROM  WHERE `qrcode`='" & qrcode & "'", con)
+                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`dateout`,`qty` FROM `f2_parts_scan` WHERE `qrcode`='" & qrcode & "'", con)
                 dr = cmdselect.ExecuteReader
                 'CON 2 : HAS RECORD
                 If dr.Read = True Then
@@ -120,7 +120,7 @@ Public Class WIP_In
 
             Else
 
-                viewdata("SELECT `batch`, `userout`, `dateout` FROM 
+                viewdata("SELECT `batch`, `userout`, `dateout` FROM `f2_parts_scan`
                          WHERE `dateout`='" & datedb & "' and `userout`='" & idno & "' and `batchout`= '" & batchcode.Text & "'")
                 If dr.Read = True Then
                     Label4.Visible = True
@@ -181,7 +181,7 @@ Public Class WIP_In
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batchout`,`qrcode`,`partcode`, `lotnumber`, `remarks`, `qty` FROM 
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batchout`,`qrcode`,`partcode`, `lotnumber`, `remarks`, `qty` FROM `f2_parts_scan`
                                                     WHERE `dateout`='" & datedb & "' and `userout`='" & idno & "' and `batchout`='" & batch & "' and  `status`='W' ", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
@@ -202,7 +202,7 @@ Public Class WIP_In
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM 
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `f2_parts_scan`
                                                     WHERE `dateout`='" & datedb & "' and `batchout`='" & batch & "' and  `userout`='" & idno & "'
                                                     GROUP BY partcode", con)
 
@@ -233,8 +233,8 @@ Public Class WIP_In
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `tblscan`
-                                                     WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')", con)
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `f2_parts_scan`
+                                                     WHERE `datein`='" & datedb & "'  and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
             Dim dt As New DataTable
@@ -244,8 +244,8 @@ Public Class WIP_In
 
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `tblscan`
-                                                  WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')               
+            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `f2_parts_scan`
+                                                  WHERE `datein`='" & datedb & "'  and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')               
                                                   GROUP BY partcode", con)
 
             Dim da2 As New MySqlDataAdapter(cmdrefreshgrid2)
@@ -262,7 +262,7 @@ Public Class WIP_In
     Private Sub update_to_WIP()
         con.Close()
         con.Open()
-        Dim cmdupdate As New MySqlCommand("UPDATE  SET   `status`='W',
+        Dim cmdupdate As New MySqlCommand("UPDATE `f2_parts_scan` SET   `status`='W',
                                                                         `batchout`='" & batch & "',
                                                                         `dateout`= '" & datedb & "',
                                                                         `userout`='" & idno & "' 
