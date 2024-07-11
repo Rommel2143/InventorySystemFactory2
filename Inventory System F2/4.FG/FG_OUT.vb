@@ -28,9 +28,8 @@ Public Class FG_OUT
     Private Sub txtqr_KeyDown(sender As Object, e As KeyEventArgs) Handles txtqr.KeyDown
 
         If e.KeyCode = Keys.Enter Then
-            qrcode = txtqr.Text
-            processQRcode(txtqr.Text)
-
+            txt_box.Clear()
+            txt_box.Focus()
         End If
     End Sub
     Private Sub processQRcode(qrcode As String)
@@ -79,14 +78,12 @@ Public Class FG_OUT
 
                         Case "OUT"
                             showduplicate()
-                            txtqr.Text = ""
-                            txtqr.Focus()
+
 
                         Case "R"
                             'returned
                             showerror("Marked as Return NG!")
-                            txtqr.Text = ""
-                            txtqr.Focus()
+
                     End Select
                     con.Close()
 
@@ -98,8 +95,7 @@ Public Class FG_OUT
             Else  'CON 1 : QR SPLITING
                 showerror("INVALID QR SCANNED!")
                 con.Close()
-                txtqr.Text = ""
-                txtqr.Focus()
+
             End If
 
 
@@ -115,19 +111,22 @@ Public Class FG_OUT
             batch = batchcode.Text
             If batchcode.Text = "" Then
                 txtqr.Enabled = False
+                txt_box.Enabled = False
                 Label4.Visible = False
                 Label7.Visible = False
 
             Else
 
-                viewdata("SELECT `batch`, `userin`, `datein` FROM `f2_fg_scan`
-                         WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`= '" & batchcode.Text & "'")
+                viewdata("SELECT `batchout`, `userout`, `dateout` FROM `f2_fg_scan`
+                         WHERE `dateout`='" & datedb & "' and `userout`='" & idno & "' and `batchout`= '" & batchcode.Text & "'")
                 If dr.Read = True Then
                     Label4.Visible = True
                     Label7.Visible = True
                     txtqr.Enabled = False
+                    txt_box.Enabled = False
                 Else
                     txtqr.Enabled = True
+                    txt_box.Enabled = True
                     Label4.Visible = False
                     Label7.Visible = False
                 End If
@@ -148,6 +147,7 @@ Public Class FG_OUT
             con.Open()
             Dim cmdinsert As New MySqlCommand("UPDATE `f2_fg_scan` SET 
                                                                     `status`='OUT',
+                                                                    `boxno`='" & txt_box.Text & "',
                                                                     `batchout`='" & batch & "',
                                                                     `userout`='" & idno & "',
                                                                     `dateout`='" & datedb & "'
@@ -196,8 +196,7 @@ Public Class FG_OUT
     Private Sub return_ok()
         Try
             labelerror.Visible = False
-            txtqr.Clear()
-            txtqr.Focus()
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -260,34 +259,6 @@ Public Class FG_OUT
 
     End Sub
 
-    Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
-        Try
-            If itemid = "" Then
-                MessageBox.Show("No item selected!")
-            Else
-                If MsgBox("Are you sure to DELETE this record?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-
-                    con.Close()
-                    con.Open()
-                    Dim cmddelete As New MySqlCommand("DELETE FROM  WHERE `id`= '" & itemid & "'", con)
-                    cmddelete.ExecuteNonQuery()
-
-
-                    '///////
-                    'deduct_to_parts(qty, partcode, dataid)
-                    itemid = ""
-                    itempartcode = ""
-                    itemqty = 0
-                    refreshgrid()
-                    refreshgrid2()
-                End If
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            con.Close()
-        End Try
-    End Sub
 
 
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
@@ -334,5 +305,27 @@ Public Class FG_OUT
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         FG_OUT_Results.Show()
         FG_OUT_Results.BringToFront()
+    End Sub
+
+    Private Sub txtqr_TextChanged(sender As Object, e As EventArgs) Handles txtqr.TextChanged
+
+    End Sub
+
+    Private Sub txtqr_ParentChanged(sender As Object, e As EventArgs) Handles txtqr.ParentChanged
+
+    End Sub
+
+    Private Sub Guna2TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txt_box.TextChanged
+
+
+    End Sub
+
+    Private Sub Guna2TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_box.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            qrcode = txtqr.Text
+            processQRcode(txtqr.Text)
+            txtqr.Clear()
+            txtqr.Focus()
+        End If
     End Sub
 End Class

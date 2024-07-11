@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ptif1-ds\SHARED\it\system\Inventorysystem-F2\</UpdateUrl>
     <PublisherName>Rommel Magnaye</PublisherName>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -265,10 +265,16 @@
     <Compile Include="4.FG\FG_Return.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage\Add_item.Designer.vb">
+    <Compile Include="5.Monitoring\stockmonitoring.designer.vb">
+      <DependentUpon>stockmonitoring.vb</DependentUpon>
+    </Compile>
+    <Compile Include="5.Monitoring\stockmonitoring.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="6.Manage\Add_item.Designer.vb">
       <DependentUpon>Add_item.vb</DependentUpon>
     </Compile>
-    <Compile Include="Manage\Add_item.vb">
+    <Compile Include="6.Manage\Add_item.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -293,10 +299,10 @@
     <Compile Include="1.PARTS\PARTS_Return.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="0.MAIN\QR_checker.designer.vb">
+    <Compile Include="5.Monitoring\QR_checker.designer.vb">
       <DependentUpon>QR_checker.vb</DependentUpon>
     </Compile>
-    <Compile Include="0.MAIN\QR_checker.vb">
+    <Compile Include="5.Monitoring\QR_checker.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="0.MAIN\Register_PC.designer.vb">
@@ -371,7 +377,10 @@
     <EmbeddedResource Include="4.FG\FG_Return.resx">
       <DependentUpon>FG_Return.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage\Add_item.resx">
+    <EmbeddedResource Include="5.Monitoring\stockmonitoring.resx">
+      <DependentUpon>stockmonitoring.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6.Manage\Add_item.resx">
       <DependentUpon>Add_item.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -383,7 +392,7 @@
     <EmbeddedResource Include="1.PARTS\PARTS_Return.resx">
       <DependentUpon>PARTS_Return.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="0.MAIN\QR_checker.resx">
+    <EmbeddedResource Include="5.Monitoring\QR_checker.resx">
       <DependentUpon>QR_checker.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="0.MAIN\Register_PC.resx">

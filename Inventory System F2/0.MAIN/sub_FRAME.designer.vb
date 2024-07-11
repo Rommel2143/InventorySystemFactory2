@@ -48,6 +48,7 @@ Partial Class sub_FRAME
         Me.DeviceInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ComputeActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -184,12 +185,11 @@ Partial Class sub_FRAME
         Me.StockMonitoringToolStripMenuItem.Name = "StockMonitoringToolStripMenuItem"
         Me.StockMonitoringToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.StockMonitoringToolStripMenuItem.Text = "Stock Monitoring"
-        Me.StockMonitoringToolStripMenuItem.Visible = False
         '
         'userstrip
         '
         Me.userstrip.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.userstrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SuggestToImproveToolStripMenuItem, Me.DeviceInfoToolStripMenuItem})
+        Me.userstrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SuggestToImproveToolStripMenuItem, Me.DeviceInfoToolStripMenuItem, Me.ComputeActualToolStripMenuItem})
         Me.userstrip.Image = CType(resources.GetObject("userstrip.Image"), System.Drawing.Image)
         Me.userstrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.userstrip.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -229,6 +229,7 @@ Partial Class sub_FRAME
         '
         'DeviceInfoToolStripMenuItem
         '
+        Me.DeviceInfoToolStripMenuItem.Image = CType(resources.GetObject("DeviceInfoToolStripMenuItem.Image"), System.Drawing.Image)
         Me.DeviceInfoToolStripMenuItem.Name = "DeviceInfoToolStripMenuItem"
         Me.DeviceInfoToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
         Me.DeviceInfoToolStripMenuItem.Text = "Device info."
@@ -247,6 +248,13 @@ Partial Class sub_FRAME
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1208, 636)
         Me.Panel1.TabIndex = 12
+        '
+        'ComputeActualToolStripMenuItem
+        '
+        Me.ComputeActualToolStripMenuItem.Name = "ComputeActualToolStripMenuItem"
+        Me.ComputeActualToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.ComputeActualToolStripMenuItem.Text = "Compute Actual"
+        Me.ComputeActualToolStripMenuItem.Visible = False
         '
         'sub_FRAME
         '
@@ -290,4 +298,5 @@ Partial Class sub_FRAME
     Friend WithEvents SCANWIPToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SCANFGToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ManageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ComputeActualToolStripMenuItem As ToolStripMenuItem
 End Class

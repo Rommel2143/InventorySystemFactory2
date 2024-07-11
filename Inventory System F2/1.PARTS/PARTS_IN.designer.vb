@@ -113,9 +113,9 @@ Partial Class Parts_In
         Me.Label10.ForeColor = System.Drawing.Color.White
         Me.Label10.Location = New System.Drawing.Point(0, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(73, 21)
+        Me.Label10.Size = New System.Drawing.Size(78, 21)
         Me.Label10.TabIndex = 204
-        Me.Label10.Text = "SCAN IN"
+        Me.Label10.Text = "PARTS IN"
         '
         'txtdate
         '
