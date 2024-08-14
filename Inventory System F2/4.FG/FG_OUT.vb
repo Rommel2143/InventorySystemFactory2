@@ -110,10 +110,7 @@ Public Class FG_OUT
         Try
             batch = batchcode.Text
             If batchcode.Text = "" Then
-                txtqr.Enabled = False
-                txt_box.Enabled = False
-                Label4.Visible = False
-                Label7.Visible = False
+                panelscan.Enabled = False
 
             Else
 
@@ -122,13 +119,13 @@ Public Class FG_OUT
                 If dr.Read = True Then
                     Label4.Visible = True
                     Label7.Visible = True
-                    txtqr.Enabled = False
-                    txt_box.Enabled = False
+                    panelscan.Enabled = False
                 Else
-                    txtqr.Enabled = True
-                    txt_box.Enabled = True
+
                     Label4.Visible = False
                     Label7.Visible = False
+                    panelscan.Enabled = True
+
                 End If
             End If
         Catch ex As Exception
@@ -327,5 +324,9 @@ Public Class FG_OUT
             txtqr.Clear()
             txtqr.Focus()
         End If
+    End Sub
+
+    Private Sub txtqr_Layout(sender As Object, e As LayoutEventArgs) Handles txtqr.Layout
+
     End Sub
 End Class
