@@ -6,7 +6,7 @@ Module Module1
 
     Public Function connection() As MySqlConnection
 
-        Return New MySqlConnection("server=PTI-029;user id=inventoryf2;password=admin123@;database=trcsystem")
+        Return New MySqlConnection("server=PTI-032;user id=inventoryf2;password=admin123@;database=trcsystem")
         ' Return New MySqlConnection("server=localhost;user id=inventoryf2;password=admin123@;database=trcsystem")
     End Function
     Public con As MySqlConnection = connection()
