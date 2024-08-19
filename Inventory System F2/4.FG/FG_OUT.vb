@@ -76,11 +76,30 @@ Public Class FG_OUT
                                 showerror("No Partcode Exists!")
                             End If
 
+                        Case "R"
+                            'deduct to fg
+                            con.Close()
+                            con.Open()
+                            Dim cmdpartcode As New MySqlCommand("SELECT `id` FROM `f2_fg_masterlist` WHERE `partcode`='" & partcode & "'", con)
+                            dr = cmdpartcode.ExecuteReader
+                            If dr.Read = True Then
+                                Dim dataid As String = dr.GetInt32("id")
+                                'SAVING
+                                update_to_scan_fg()
+                                deduct_to_fg(qty, partcode)
+                                refreshgrid()
+                                refreshgrid2()
+                                return_ok()
+
+                            Else  'CON 3 : PARTCODE
+                                showerror("No Partcode Exists!")
+                            End If
+
                         Case "OUT"
                             showduplicate()
 
 
-                        Case "R"
+                        Case "NG"
                             'returned
                             showerror("Marked as Return NG!")
 
