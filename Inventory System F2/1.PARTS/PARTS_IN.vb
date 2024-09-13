@@ -13,6 +13,7 @@ Public Class Parts_In
     Dim lotnumber As String
     Dim remarks As String
     Dim qty As Integer
+    Dim serial As String
 
     'selected item
     Dim itemid As String = ""
@@ -45,7 +46,7 @@ Public Class Parts_In
                 qty = parts(3).Remove(0, 2).Trim
                 remarks = parts(4).Remove(0, 2).Trim
                 supplier = parts(1).Remove(0, 2).Trim
-
+                serial = parts(5).Remove(0, 2).Trim
 
                 con.Close()
                 con.Open()
@@ -154,6 +155,7 @@ Public Class Parts_In
                                                                             `suppliercode`,
                                                                             `qrcode`,
                                                                             `lotnumber`,
+                                                                            `serial`,
                                                                             `remarks`,
                                                                             `qty`) 
 
@@ -165,6 +167,7 @@ Public Class Parts_In
                                                               '" & supplier & "',
                                                               '" & qrcode & "',
                                                               '" & lotnumber & "',
+                                                              '" & serial & "',
                                                               '" & remarks & "',
                                                               '" & qty & "')", con)
             cmdinsert.ExecuteNonQuery()

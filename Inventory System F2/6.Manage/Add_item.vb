@@ -6,8 +6,8 @@ Public Class Add_item
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
 
         Try
-            If P_partcode.Text = "" Then
-                MessageBox.Show("Scan QR first!")
+            If P_partcode.Text = "" And P_Partname.Text = "" Then
+                MessageBox.Show("All Fields Required!")
             Else
                 con.Close()
                 con.Open()
@@ -57,8 +57,8 @@ VALUES ('" & P_Partname.Text & "','" & P_partcode.Text & "','" & P_supplier.Text
 
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-        If fgcode.Text = "" Then
-            MessageBox.Show("Scan QR first!")
+        If fgcode.Text = "" And fg_partname.Text = "" Then
+            MessageBox.Show("All Fields Required!")
         Else
 
 

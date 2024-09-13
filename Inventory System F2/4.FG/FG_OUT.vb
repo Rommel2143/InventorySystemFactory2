@@ -287,36 +287,6 @@ Public Class FG_OUT
         refreshgrid2()
     End Sub
 
-    Private Sub cmbsearch_TextChanged(sender As Object, e As EventArgs) Handles cmbsearch.TextChanged
-        Try
-            con.Close()
-            con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`,`batch`,`qrcode`,`partcode`,  `lotnumber`, `remarks`, `qty` FROM `tblscan`
-                                                     WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')", con)
-
-            Dim da As New MySqlDataAdapter(cmdrefreshgrid)
-            Dim dt As New DataTable
-            da.Fill(dt)
-            datagrid1.DataSource = dt
-            datagrid1.AutoResizeColumns()
-
-            con.Close()
-            con.Open()
-            Dim cmdrefreshgrid2 As New MySqlCommand("SELECT `partcode`, SUM(`qty`) FROM `tblscan`
-                                                  WHERE `datein`='" & datedb & "' and `located`='" & PClocation & "' and `userin`='" & idno & "' and `status`='IN' and (`qrcode` REGEXP '" & cmbsearch.Text & "' or `batch` REGEXP '" & cmbsearch.Text & "')               
-                                                  GROUP BY partcode", con)
-
-            Dim da2 As New MySqlDataAdapter(cmdrefreshgrid2)
-            Dim dt2 As New DataTable
-            da2.Fill(dt2)
-            datagrid2.DataSource = dt2
-            datagrid2.AutoResizeColumns()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            con.Close()
-        End Try
-    End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         FG_OUT_Results.Show()

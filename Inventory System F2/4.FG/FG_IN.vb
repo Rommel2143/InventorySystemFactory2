@@ -13,7 +13,7 @@ Public Class FG_IN
     Dim lotnumber As String
     Dim remarks As String
     Dim qty As Integer
-
+    Dim serial As String
     'selected item
     Dim itemid As String = ""
     Dim itempartcode As String = ""
@@ -45,7 +45,7 @@ Public Class FG_IN
                 qty = parts(3).Remove(0, 2).Trim
                 remarks = parts(4).Remove(0, 2).Trim
                 supplier = parts(1).Remove(0, 2).Trim
-
+                serial = parts(5).Remove(0, 2).Trim
 
                 con.Close()
                 con.Open()
@@ -151,7 +151,8 @@ Public Class FG_IN
                                                                             `qrcode`,
                                                                             `lotnumber`,
                                                                             `remarks`,
-                                                                            `qty`) 
+                                                                            `qty`,
+                                                                             `serial`) 
 
                                                        VALUES ('FG',
                                                               '" & batch & "',
@@ -161,7 +162,8 @@ Public Class FG_IN
                                                               '" & qrcode & "',
                                                               '" & lotnumber & "',
                                                               '" & remarks & "',
-                                                              '" & qty & "')", con)
+                                                              '" & qty & "',
+                                                              '" & serial & "')", con)
             cmdinsert.ExecuteNonQuery()
 
         Catch ex As Exception

@@ -46,16 +46,17 @@ Partial Class sub_FRAME
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SuggestToImproveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeviceInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComputeActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.ComputeActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
         Me.MenuStrip1.AutoSize = False
-        Me.MenuStrip1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.ToolStripMenuItem1, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5, Me.QRCheckerToolStripMenuItem, Me.userstrip, Me.ManageToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
@@ -68,21 +69,21 @@ Partial Class sub_FRAME
         Me.MasterlistToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PARTSToolStripMenuItem, Me.RETURNToolStripMenuItem})
         Me.MasterlistToolStripMenuItem.Image = CType(resources.GetObject("MasterlistToolStripMenuItem.Image"), System.Drawing.Image)
         Me.MasterlistToolStripMenuItem.Name = "MasterlistToolStripMenuItem"
-        Me.MasterlistToolStripMenuItem.Size = New System.Drawing.Size(76, 37)
+        Me.MasterlistToolStripMenuItem.Size = New System.Drawing.Size(72, 37)
         Me.MasterlistToolStripMenuItem.Text = "Parts"
         '
         'PARTSToolStripMenuItem
         '
         Me.PARTSToolStripMenuItem.Image = CType(resources.GetObject("PARTSToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PARTSToolStripMenuItem.Name = "PARTSToolStripMenuItem"
-        Me.PARTSToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.PARTSToolStripMenuItem.Size = New System.Drawing.Size(207, 26)
         Me.PARTSToolStripMenuItem.Text = "IN"
         '
         'RETURNToolStripMenuItem
         '
         Me.RETURNToolStripMenuItem.Image = CType(resources.GetObject("RETURNToolStripMenuItem.Image"), System.Drawing.Image)
         Me.RETURNToolStripMenuItem.Name = "RETURNToolStripMenuItem"
-        Me.RETURNToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.RETURNToolStripMenuItem.Size = New System.Drawing.Size(207, 26)
         Me.RETURNToolStripMenuItem.Text = "Return to Supplier"
         '
         'ToolStripMenuItem1
@@ -90,21 +91,21 @@ Partial Class sub_FRAME
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem4})
         Me.ToolStripMenuItem1.Image = CType(resources.GetObject("ToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(67, 37)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(66, 37)
         Me.ToolStripMenuItem1.Text = "WIP"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Image = CType(resources.GetObject("ToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(162, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem2.Text = "Recieve"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Image = CType(resources.GetObject("ToolStripMenuItem4.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(162, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem4.Text = "Return WIP"
         '
         'ToolStripMenuItem3
@@ -112,7 +113,7 @@ Partial Class sub_FRAME
         Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem9, Me.SCANWIPToolStripMenuItem, Me.SCANFGToolStripMenuItem})
         Me.ToolStripMenuItem3.Image = CType(resources.GetObject("ToolStripMenuItem3.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(123, 37)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(113, 37)
         Me.ToolStripMenuItem3.Text = "ASSEMBLY"
         Me.ToolStripMenuItem3.Visible = False
         '
@@ -120,19 +121,19 @@ Partial Class sub_FRAME
         '
         Me.ToolStripMenuItem9.Image = CType(resources.GetObject("ToolStripMenuItem9.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(159, 22)
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem9.Text = "SETUP FG"
         '
         'SCANWIPToolStripMenuItem
         '
         Me.SCANWIPToolStripMenuItem.Name = "SCANWIPToolStripMenuItem"
-        Me.SCANWIPToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.SCANWIPToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.SCANWIPToolStripMenuItem.Text = "SCAN WIP"
         '
         'SCANFGToolStripMenuItem
         '
         Me.SCANFGToolStripMenuItem.Name = "SCANFGToolStripMenuItem"
-        Me.SCANFGToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.SCANFGToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.SCANFGToolStripMenuItem.Text = "SCAN FG"
         '
         'ToolStripMenuItem5
@@ -140,28 +141,28 @@ Partial Class sub_FRAME
         Me.ToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.ToolStripMenuItem7, Me.ToolStripMenuItem8})
         Me.ToolStripMenuItem5.Image = CType(resources.GetObject("ToolStripMenuItem5.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(59, 37)
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(57, 37)
         Me.ToolStripMenuItem5.Text = "FG"
         '
         'ToolStripMenuItem6
         '
         Me.ToolStripMenuItem6.Image = CType(resources.GetObject("ToolStripMenuItem6.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(185, 22)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem6.Text = "IN FG"
         '
         'ToolStripMenuItem7
         '
         Me.ToolStripMenuItem7.Image = CType(resources.GetObject("ToolStripMenuItem7.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(185, 22)
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem7.Text = "OUT FG"
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Image = CType(resources.GetObject("ToolStripMenuItem8.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(185, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem8.Text = "Return to TRC"
         '
         'QRCheckerToolStripMenuItem
@@ -176,26 +177,26 @@ Partial Class sub_FRAME
         '
         Me.QRCheckerToolStripMenuItem1.Image = CType(resources.GetObject("QRCheckerToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.QRCheckerToolStripMenuItem1.Name = "QRCheckerToolStripMenuItem1"
-        Me.QRCheckerToolStripMenuItem1.Size = New System.Drawing.Size(205, 22)
+        Me.QRCheckerToolStripMenuItem1.Size = New System.Drawing.Size(199, 26)
         Me.QRCheckerToolStripMenuItem1.Text = "QR Checker"
         '
         'StockMonitoringToolStripMenuItem
         '
         Me.StockMonitoringToolStripMenuItem.Image = CType(resources.GetObject("StockMonitoringToolStripMenuItem.Image"), System.Drawing.Image)
         Me.StockMonitoringToolStripMenuItem.Name = "StockMonitoringToolStripMenuItem"
-        Me.StockMonitoringToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.StockMonitoringToolStripMenuItem.Size = New System.Drawing.Size(199, 26)
         Me.StockMonitoringToolStripMenuItem.Text = "Stock Monitoring"
         '
         'userstrip
         '
         Me.userstrip.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.userstrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SuggestToImproveToolStripMenuItem, Me.DeviceInfoToolStripMenuItem, Me.ComputeActualToolStripMenuItem})
+        Me.userstrip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SuggestToImproveToolStripMenuItem, Me.DeviceInfoToolStripMenuItem, Me.CheckUpdatesToolStripMenuItem, Me.ComputeActualToolStripMenuItem})
         Me.userstrip.Image = CType(resources.GetObject("userstrip.Image"), System.Drawing.Image)
         Me.userstrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.userstrip.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.userstrip.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
         Me.userstrip.Name = "userstrip"
-        Me.userstrip.Size = New System.Drawing.Size(88, 37)
+        Me.userstrip.Size = New System.Drawing.Size(86, 37)
         Me.userstrip.Text = "User"
         Me.userstrip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.userstrip.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
@@ -206,7 +207,7 @@ Partial Class sub_FRAME
         Me.LogoutToolStripMenuItem.Image = CType(resources.GetObject("LogoutToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
         Me.LogoutToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
         'ExitToolStripMenuItem
@@ -215,7 +216,7 @@ Partial Class sub_FRAME
         Me.ExitToolStripMenuItem.Image = CType(resources.GetObject("ExitToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'SuggestToImproveToolStripMenuItem
@@ -224,21 +225,28 @@ Partial Class sub_FRAME
         Me.SuggestToImproveToolStripMenuItem.Image = CType(resources.GetObject("SuggestToImproveToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SuggestToImproveToolStripMenuItem.Name = "SuggestToImproveToolStripMenuItem"
         Me.SuggestToImproveToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.SuggestToImproveToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.SuggestToImproveToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.SuggestToImproveToolStripMenuItem.Text = "Suggest to improve"
         '
         'DeviceInfoToolStripMenuItem
         '
         Me.DeviceInfoToolStripMenuItem.Image = CType(resources.GetObject("DeviceInfoToolStripMenuItem.Image"), System.Drawing.Image)
         Me.DeviceInfoToolStripMenuItem.Name = "DeviceInfoToolStripMenuItem"
-        Me.DeviceInfoToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.DeviceInfoToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.DeviceInfoToolStripMenuItem.Text = "Device info."
+        '
+        'ComputeActualToolStripMenuItem
+        '
+        Me.ComputeActualToolStripMenuItem.Name = "ComputeActualToolStripMenuItem"
+        Me.ComputeActualToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.ComputeActualToolStripMenuItem.Text = "Compute Actual"
+        Me.ComputeActualToolStripMenuItem.Visible = False
         '
         'ManageToolStripMenuItem
         '
         Me.ManageToolStripMenuItem.Image = CType(resources.GetObject("ManageToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ManageToolStripMenuItem.Name = "ManageToolStripMenuItem"
-        Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(95, 37)
+        Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(94, 37)
         Me.ManageToolStripMenuItem.Text = "Manage"
         '
         'Panel1
@@ -249,12 +257,12 @@ Partial Class sub_FRAME
         Me.Panel1.Size = New System.Drawing.Size(1208, 636)
         Me.Panel1.TabIndex = 12
         '
-        'ComputeActualToolStripMenuItem
+        'CheckUpdatesToolStripMenuItem
         '
-        Me.ComputeActualToolStripMenuItem.Name = "ComputeActualToolStripMenuItem"
-        Me.ComputeActualToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
-        Me.ComputeActualToolStripMenuItem.Text = "Compute Actual"
-        Me.ComputeActualToolStripMenuItem.Visible = False
+        Me.CheckUpdatesToolStripMenuItem.Image = CType(resources.GetObject("CheckUpdatesToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.CheckUpdatesToolStripMenuItem.Name = "CheckUpdatesToolStripMenuItem"
+        Me.CheckUpdatesToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.CheckUpdatesToolStripMenuItem.Text = "Check Updates"
         '
         'sub_FRAME
         '
@@ -299,4 +307,5 @@ Partial Class sub_FRAME
     Friend WithEvents SCANFGToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ManageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ComputeActualToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CheckUpdatesToolStripMenuItem As ToolStripMenuItem
 End Class

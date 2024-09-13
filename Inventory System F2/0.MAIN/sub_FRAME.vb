@@ -96,4 +96,18 @@ Public Class sub_FRAME
     Private Sub userstrip_Click(sender As Object, e As EventArgs) Handles userstrip.Click
 
     End Sub
+
+    Private Sub CheckUpdatesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckUpdatesToolStripMenuItem.Click
+        Try
+            Dim setupPath As String = "\\ptif1-ds\SystemServer\Inventorysystem-F2\setup.exe"
+            If System.IO.File.Exists(setupPath) Then
+                Process.Start(setupPath)
+                Application.Exit()
+            Else
+                MessageBox.Show("Update file not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while trying to update: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 End Class

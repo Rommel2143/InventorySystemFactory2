@@ -86,4 +86,7 @@ Public Class Login
 
     End Sub
 
+    Private Sub txtbarcode_TextChanged(sender As Object, e As EventArgs) Handles txtbarcode.TextChanged
+
+    End Sub
 End Class
