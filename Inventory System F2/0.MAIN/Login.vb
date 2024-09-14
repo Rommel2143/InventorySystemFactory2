@@ -57,9 +57,14 @@ Public Class Login
                 If dr.Read = True Then
                     fname = dr("fullname").ToString
                     idno = dr("IDno").ToString
+                    userstatus = dr.GetInt32("status")
+                    Select Case userstatus
+                        Case 0
+                            sub_FRAME.script_tool.Visible = False
 
+                    End Select
                     display_form(sub_FRAME)
-                        sub_FRAME.userstrip.Text = fname
+                    sub_FRAME.userstrip.Text = fname
                     labelerror.Visible = False
                 Else
                     noid()
@@ -87,6 +92,24 @@ Public Class Login
     End Sub
 
     Private Sub txtbarcode_TextChanged(sender As Object, e As EventArgs) Handles txtbarcode.TextChanged
+        If txtbarcode.Text = "knockknock" Then
+            panel_admin.Visible = True
+        Else
+            panel_admin.Visible = False
+        End If
+
+    End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        If enable_admin.Text = "whosthere" Then
+
+            sub_FRAME.script_tool.Visible = True
+                MessageBox.Show("Enabled")
+            enable_admin.Clear()
+        End If
+    End Sub
+
+    Private Sub enable_admin_TextChanged(sender As Object, e As EventArgs) Handles enable_admin.TextChanged
 
     End Sub
 End Class

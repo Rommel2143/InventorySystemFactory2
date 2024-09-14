@@ -32,7 +32,11 @@ Partial Class Login
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtbarcode = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.enable_admin = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.panel_admin = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Panel1.SuspendLayout()
+        Me.panel_admin.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2Panel1
@@ -40,6 +44,7 @@ Partial Class Login
         Me.Guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Guna2Panel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel1.BorderRadius = 10
+        Me.Guna2Panel1.Controls.Add(Me.panel_admin)
         Me.Guna2Panel1.Controls.Add(Me.lblversion)
         Me.Guna2Panel1.Controls.Add(Me.labelerror)
         Me.Guna2Panel1.Controls.Add(Me.txtpclocation)
@@ -71,7 +76,7 @@ Partial Class Login
         Me.labelerror.AutoSize = True
         Me.labelerror.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelerror.ForeColor = System.Drawing.Color.Tomato
-        Me.labelerror.Location = New System.Drawing.Point(352, 263)
+        Me.labelerror.Location = New System.Drawing.Point(267, 259)
         Me.labelerror.Name = "labelerror"
         Me.labelerror.Size = New System.Drawing.Size(106, 15)
         Me.labelerror.TabIndex = 22
@@ -155,6 +160,54 @@ Partial Class Login
         Me.txtbarcode.TabIndex = 0
         Me.txtbarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'enable_admin
+        '
+        Me.enable_admin.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.enable_admin.DefaultText = ""
+        Me.enable_admin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.enable_admin.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.enable_admin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.enable_admin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.enable_admin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.enable_admin.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.enable_admin.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.enable_admin.IconLeft = CType(resources.GetObject("enable_admin.IconLeft"), System.Drawing.Image)
+        Me.enable_admin.IconLeftSize = New System.Drawing.Size(30, 30)
+        Me.enable_admin.Location = New System.Drawing.Point(5, 8)
+        Me.enable_admin.Margin = New System.Windows.Forms.Padding(5)
+        Me.enable_admin.Name = "enable_admin"
+        Me.enable_admin.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.enable_admin.PlaceholderText = ""
+        Me.enable_admin.SelectedText = ""
+        Me.enable_admin.Size = New System.Drawing.Size(192, 42)
+        Me.enable_admin.TabIndex = 24
+        Me.enable_admin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.SystemColors.HotTrack
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Location = New System.Drawing.Point(205, 8)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(89, 45)
+        Me.Guna2Button1.TabIndex = 25
+        Me.Guna2Button1.Text = "Admin mode"
+        '
+        'panel_admin
+        '
+        Me.panel_admin.BackColor = System.Drawing.Color.Red
+        Me.panel_admin.Controls.Add(Me.Guna2Button1)
+        Me.panel_admin.Controls.Add(Me.enable_admin)
+        Me.panel_admin.Location = New System.Drawing.Point(255, 277)
+        Me.panel_admin.Name = "panel_admin"
+        Me.panel_admin.Size = New System.Drawing.Size(306, 61)
+        Me.panel_admin.TabIndex = 26
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -168,6 +221,7 @@ Partial Class Login
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
+        Me.panel_admin.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -181,4 +235,7 @@ Partial Class Login
     Friend WithEvents txtpclocation As Label
     Friend WithEvents labelerror As Label
     Friend WithEvents lblversion As Label
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents enable_admin As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents panel_admin As Guna.UI2.WinForms.Guna2Panel
 End Class

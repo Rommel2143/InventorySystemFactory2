@@ -318,4 +318,8 @@ Public Class FG_OUT
     Private Sub txtqr_Layout(sender As Object, e As LayoutEventArgs) Handles txtqr.Layout
 
     End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
 End Class

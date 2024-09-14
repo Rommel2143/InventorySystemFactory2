@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ptif1-ds\SystemServer\Inventorysystem-F2\</UpdateUrl>
     <PublisherName>Rommel Magnaye</PublisherName>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -205,10 +205,22 @@
     <Compile Include="1.PARTS\PARTS_IN_Results.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="1.PARTS\parts_script.Designer.vb">
+      <DependentUpon>parts_script.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1.PARTS\parts_script.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="2.WIP\WIP_IN_Results.Designer.vb">
       <DependentUpon>WIP_IN_Results.vb</DependentUpon>
     </Compile>
     <Compile Include="2.WIP\WIP_IN_Results.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.WIP\wip_In_script.Designer.vb">
+      <DependentUpon>wip_In_script.vb</DependentUpon>
+    </Compile>
+    <Compile Include="2.WIP\wip_In_script.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="2.WIP\WIP_Return.designer.vb">
@@ -247,6 +259,12 @@
     <Compile Include="4.FG\FG_IN_Results.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="4.FG\fg_in_script.Designer.vb">
+      <DependentUpon>fg_in_script.vb</DependentUpon>
+    </Compile>
+    <Compile Include="4.FG\fg_in_script.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="4.FG\FG_OUT.Designer.vb">
       <DependentUpon>FG_OUT.vb</DependentUpon>
     </Compile>
@@ -257,6 +275,12 @@
       <DependentUpon>FG_OUT_Results.vb</DependentUpon>
     </Compile>
     <Compile Include="4.FG\FG_OUT_Results.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.FG\fg_out_script.Designer.vb">
+      <DependentUpon>fg_out_script.vb</DependentUpon>
+    </Compile>
+    <Compile Include="4.FG\fg_out_script.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="4.FG\FG_Return.Designer.vb">
@@ -347,8 +371,14 @@
     <EmbeddedResource Include="1.PARTS\PARTS_IN_Results.resx">
       <DependentUpon>PARTS_IN_Results.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="1.PARTS\parts_script.resx">
+      <DependentUpon>parts_script.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2.WIP\WIP_IN_Results.resx">
       <DependentUpon>WIP_IN_Results.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.WIP\wip_In_script.resx">
+      <DependentUpon>wip_In_script.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2.WIP\WIP_Return.resx">
       <DependentUpon>WIP_Return.vb</DependentUpon>
@@ -368,11 +398,17 @@
     <EmbeddedResource Include="4.FG\FG_IN_Results.resx">
       <DependentUpon>FG_IN_Results.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="4.FG\fg_in_script.resx">
+      <DependentUpon>fg_in_script.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="4.FG\FG_OUT.resx">
       <DependentUpon>FG_OUT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="4.FG\FG_OUT_Results.resx">
       <DependentUpon>FG_OUT_Results.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.FG\fg_out_script.resx">
+      <DependentUpon>fg_out_script.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="4.FG\FG_Return.resx">
       <DependentUpon>FG_Return.vb</DependentUpon>

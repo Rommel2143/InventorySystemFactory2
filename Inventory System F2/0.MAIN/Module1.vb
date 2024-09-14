@@ -7,7 +7,7 @@ Module Module1
     Public Function connection() As MySqlConnection
 
         Return New MySqlConnection("server=PTI-032;user id=inventoryf2;password=admin123@;database=trcsystem")
-        ' Return New MySqlConnection("server=localhost;user id=inventoryf2;password=admin123@;database=trcsystem")
+        'Return New MySqlConnection("server=localhost;user id=trcsystem;password=Magnaye2143@#;database=trcsystem")
     End Function
     Public con As MySqlConnection = connection()
     Public result As String
@@ -19,6 +19,7 @@ Module Module1
     'credentials for log in
     Public fname As String
     Public idno As String
+    Public userstatus As Integer
     Public designation As String
     Public PCname As String = Environment.MachineName
     Public PCmac As String = GetMacAddress()

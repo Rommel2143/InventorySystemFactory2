@@ -30,6 +30,8 @@ Public Class sub_FRAME
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
         display_form(Login)
         Login.txtbarcode.Clear()
+        script_tool.Visible = False
+        Panel1.Controls.Clear()
     End Sub
 
     Private Sub DeviceInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeviceInfoToolStripMenuItem.Click
@@ -109,5 +111,17 @@ Public Class sub_FRAME
         Catch ex As Exception
             MessageBox.Show("An error occurred while trying to update: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub PartsINToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PartsINToolStripMenuItem.Click
+        display_formscan(parts_script)
+    End Sub
+
+    Private Sub WIPINToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WIPINToolStripMenuItem.Click
+        display_formscan(wip_In_script)
+    End Sub
+
+    Private Sub FGINToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FGINToolStripMenuItem.Click
+        display_formscan(fg_in_script)
     End Sub
 End Class

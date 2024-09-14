@@ -96,7 +96,7 @@ VALUES ('" & fg_partname.Text & "','" & fgcode.Text & "','0')", con)
 
             con.Close()
             con.Open()
-            Dim cmdinsert As New MySqlCommand(" INSERT INTO `f2_scanoperator_is`(`IDno`, `Fullname`, `status`) VALUES ('" & idno.Text & "','" & fname.Text & "','user')", con)
+            Dim cmdinsert As New MySqlCommand(" INSERT INTO `f2_scanoperator_is`(`IDno`, `Fullname`, `status`) VALUES ('" & idno.Text & "','" & fname.Text & "',0)", con)
             cmdinsert.ExecuteNonQuery()
             MessageBox.Show("USER Added successfully!")
             con.Close()
