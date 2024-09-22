@@ -524,11 +524,11 @@ Partial Public Class DataSet1
                     ByVal lotnumber As String,  _
                     ByVal remarks As String,  _
                     ByVal qty As Integer,  _
-                    ByVal datein As String,  _
+                    ByVal datein As Date,  _
                     ByVal userin As String,  _
                     ByVal batchout As String,  _
                     ByVal userout As String,  _
-                    ByVal dateout As String,  _
+                    ByVal dateout As Date,  _
                     ByVal boxno As String,  _
                     ByVal Fullname As String,  _
                     ByVal Partname As String) As f2_fg_scanRow
@@ -599,7 +599,7 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnremarks)
             Me.columnqty = New Global.System.Data.DataColumn("qty", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnqty)
-            Me.columndatein = New Global.System.Data.DataColumn("datein", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columndatein = New Global.System.Data.DataColumn("datein", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndatein)
             Me.columnuserin = New Global.System.Data.DataColumn("userin", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnuserin)
@@ -607,7 +607,7 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnbatchout)
             Me.columnuserout = New Global.System.Data.DataColumn("userout", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnuserout)
-            Me.columndateout = New Global.System.Data.DataColumn("dateout", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columndateout = New Global.System.Data.DataColumn("dateout", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndateout)
             Me.columnboxno = New Global.System.Data.DataColumn("boxno", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnboxno)
@@ -880,10 +880,10 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property datein() As String
+        Public Property datein() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tablef2_fg_scan.dateinColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.dateinColumn),Date)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'datein' in table 'f2_fg_scan' is DBNull.", e)
                 End Try
@@ -940,10 +940,10 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property dateout() As String
+        Public Property dateout() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tablef2_fg_scan.dateoutColumn),String)
+                    Return CType(Me(Me.tablef2_fg_scan.dateoutColumn),Date)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'dateout' in table 'f2_fg_scan' is DBNull.", e)
                 End Try

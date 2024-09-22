@@ -205,10 +205,10 @@
     <Compile Include="1.PARTS\PARTS_IN_Results.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1.PARTS\parts_script.Designer.vb">
+    <Compile Include="7.Scripts\parts_script.Designer.vb">
       <DependentUpon>parts_script.vb</DependentUpon>
     </Compile>
-    <Compile Include="1.PARTS\parts_script.vb">
+    <Compile Include="7.Scripts\parts_script.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="2.WIP\WIP_IN_Results.Designer.vb">
@@ -217,10 +217,10 @@
     <Compile Include="2.WIP\WIP_IN_Results.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2.WIP\wip_In_script.Designer.vb">
+    <Compile Include="7.Scripts\wip_In_script.Designer.vb">
       <DependentUpon>wip_In_script.vb</DependentUpon>
     </Compile>
-    <Compile Include="2.WIP\wip_In_script.vb">
+    <Compile Include="7.Scripts\wip_In_script.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="2.WIP\WIP_Return.designer.vb">
@@ -259,10 +259,10 @@
     <Compile Include="4.FG\FG_IN_Results.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="4.FG\fg_in_script.Designer.vb">
+    <Compile Include="7.Scripts\fg_in_script.Designer.vb">
       <DependentUpon>fg_in_script.vb</DependentUpon>
     </Compile>
-    <Compile Include="4.FG\fg_in_script.vb">
+    <Compile Include="7.Scripts\fg_in_script.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="4.FG\FG_OUT.Designer.vb">
@@ -277,10 +277,10 @@
     <Compile Include="4.FG\FG_OUT_Results.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="4.FG\fg_out_script.Designer.vb">
+    <Compile Include="7.Scripts\fg_out_script.Designer.vb">
       <DependentUpon>fg_out_script.vb</DependentUpon>
     </Compile>
-    <Compile Include="4.FG\fg_out_script.vb">
+    <Compile Include="7.Scripts\fg_out_script.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="4.FG\FG_Return.Designer.vb">
@@ -371,13 +371,13 @@
     <EmbeddedResource Include="1.PARTS\PARTS_IN_Results.resx">
       <DependentUpon>PARTS_IN_Results.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1.PARTS\parts_script.resx">
+    <EmbeddedResource Include="7.Scripts\parts_script.resx">
       <DependentUpon>parts_script.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2.WIP\WIP_IN_Results.resx">
       <DependentUpon>WIP_IN_Results.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2.WIP\wip_In_script.resx">
+    <EmbeddedResource Include="7.Scripts\wip_In_script.resx">
       <DependentUpon>wip_In_script.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2.WIP\WIP_Return.resx">
@@ -398,7 +398,7 @@
     <EmbeddedResource Include="4.FG\FG_IN_Results.resx">
       <DependentUpon>FG_IN_Results.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="4.FG\fg_in_script.resx">
+    <EmbeddedResource Include="7.Scripts\fg_in_script.resx">
       <DependentUpon>fg_in_script.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="4.FG\FG_OUT.resx">
@@ -407,7 +407,7 @@
     <EmbeddedResource Include="4.FG\FG_OUT_Results.resx">
       <DependentUpon>FG_OUT_Results.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="4.FG\fg_out_script.resx">
+    <EmbeddedResource Include="7.Scripts\fg_out_script.resx">
       <DependentUpon>fg_out_script.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="4.FG\FG_Return.resx">

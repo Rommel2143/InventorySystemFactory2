@@ -124,4 +124,8 @@ Public Class sub_FRAME
     Private Sub FGINToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FGINToolStripMenuItem.Click
         display_formscan(fg_in_script)
     End Sub
+
+    Private Sub FGOUTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FGOUTToolStripMenuItem.Click
+        display_formscan(fg_out_script)
+    End Sub
 End Class

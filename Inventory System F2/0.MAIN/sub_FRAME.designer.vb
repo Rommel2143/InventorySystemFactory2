@@ -53,6 +53,7 @@ Partial Class sub_FRAME
         Me.FGINToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.FGOUTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -247,7 +248,7 @@ Partial Class sub_FRAME
         '
         'script_tool
         '
-        Me.script_tool.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PartsINToolStripMenuItem, Me.WIPINToolStripMenuItem, Me.FGINToolStripMenuItem})
+        Me.script_tool.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PartsINToolStripMenuItem, Me.WIPINToolStripMenuItem, Me.FGINToolStripMenuItem, Me.FGOUTToolStripMenuItem})
         Me.script_tool.Name = "script_tool"
         Me.script_tool.Size = New System.Drawing.Size(216, 26)
         Me.script_tool.Text = "Script"
@@ -285,6 +286,12 @@ Partial Class sub_FRAME
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1208, 636)
         Me.Panel1.TabIndex = 12
+        '
+        'FGOUTToolStripMenuItem
+        '
+        Me.FGOUTToolStripMenuItem.Name = "FGOUTToolStripMenuItem"
+        Me.FGOUTToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.FGOUTToolStripMenuItem.Text = "FG OUT"
         '
         'sub_FRAME
         '
@@ -333,4 +340,5 @@ Partial Class sub_FRAME
     Friend WithEvents PartsINToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WIPINToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FGINToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FGOUTToolStripMenuItem As ToolStripMenuItem
 End Class
