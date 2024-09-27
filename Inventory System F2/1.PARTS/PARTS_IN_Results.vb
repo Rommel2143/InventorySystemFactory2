@@ -1,4 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports System.IO
 Public Class Parts_IN_Results
     Dim itempartcode As String
 
@@ -125,4 +128,83 @@ Public Class Parts_IN_Results
     Private Sub datagrid1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContentClick
 
     End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        savetoPDF(datagrid2, "Recieved Delivery Report")
+    End Sub
+    Private Sub savetoPDF(datagrid As Guna.UI2.WinForms.Guna2DataGridView, title As String)
+        Try
+            ' Get the selected date from dtpicker1
+            Dim selectedDate As String = dtpicker.Value.ToString("MMMMdd-yyyy")
+
+            ' Prompt the user for the save location with the date in the file name
+            Using saveDialog As New SaveFileDialog()
+                saveDialog.Filter = "PDF Files (*.pdf)|*.pdf"
+                saveDialog.FileName = "" & title & "_" & selectedDate & ".pdf"
+
+                If saveDialog.ShowDialog() = DialogResult.OK Then
+                    ' Export DataGridView to PDF using iTextSharp with landscape orientation
+                    Dim pdfDoc As New Document(PageSize.A4.Rotate(), 10, 10, 10, 10)
+                    Dim writer As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(saveDialog.FileName, FileMode.Create))
+                    pdfDoc.Open()
+
+                    ' Adding title with Helvetica font
+                    Dim titleFont As Font = FontFactory.GetFont("Helvetica", CSng(16), CType(Font.Bold, Integer))
+                    pdfDoc.Add(New Paragraph(title, titleFont) With {.Alignment = Element.ALIGN_CENTER})
+
+                    ' Add selected date from dtpicker1
+                    Dim dateFont As Font = FontFactory.GetFont("Helvetica", CSng(12), CType(Font.Bold, Integer))
+                    pdfDoc.Add(New Paragraph("Date: " & dtpicker.Value.ToString("MMMM-dd-yyyy"), dateFont) With {.Alignment = Element.ALIGN_CENTER})
+                    pdfDoc.Add(New Paragraph(Environment.NewLine)) ' Add a space after the title and date
+
+                    ' Add batch information
+                    Dim batchFont As Font = FontFactory.GetFont("Helvetica", CSng(12), CType(Font.Bold, Integer))
+                    pdfDoc.Add(New Paragraph("Batch: " & cmbbatchin.Text, batchFont) With {.Alignment = Element.ALIGN_CENTER})
+                    pdfDoc.Add(New Paragraph(Environment.NewLine)) ' Add a space after the title and date
+
+                    ' Create PDF table
+                    Dim pdfTable As New PdfPTable(datagrid.ColumnCount) With {
+                        .WidthPercentage = 100,
+                        .SpacingBefore = 10,
+                        .SpacingAfter = 10
+                    }
+
+                    ' Add table headers
+                    For Each column As DataGridViewColumn In datagrid.Columns
+                        Dim headerFont As Font = FontFactory.GetFont("Helvetica", CSng(12), CType(Font.Bold, Integer))
+                        Dim headerCell As New PdfPCell(New Phrase(column.HeaderText, headerFont)) With {
+                            .HorizontalAlignment = Element.ALIGN_CENTER,
+                            .FixedHeight = Utilities.MillimetersToPoints(10) ' Set header row height to 10mm
+                        }
+                        pdfTable.AddCell(headerCell)
+                    Next
+
+                    ' Add table data
+                    Dim rowFont As Font = FontFactory.GetFont("Helvetica", CSng(9)) ' Set row font size to 9
+                    For Each row As DataGridViewRow In datagrid.Rows
+                        If Not row.IsNewRow Then
+                            For Each cell As DataGridViewCell In row.Cells
+                                Dim cellValue As String = If(cell.Value IsNot Nothing, cell.Value.ToString(), "")
+                                Dim pdfCell As New PdfPCell(New Phrase(cellValue, rowFont)) With {
+                                    .FixedHeight = Utilities.MillimetersToPoints(8) ' Set data row height to 10mm
+                                }
+                                pdfTable.AddCell(pdfCell)
+                            Next
+                        End If
+                    Next
+
+                    ' Add table to document
+                    pdfDoc.Add(pdfTable)
+                    pdfDoc.Close()
+                    writer.Close()
+
+                    MessageBox.Show("Exported to PDF successfully.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while exporting: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
 End Class
