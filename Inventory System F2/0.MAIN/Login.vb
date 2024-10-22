@@ -82,7 +82,7 @@ Public Class Login
                     Select Case userstatus
                         Case 0
                             sub_FRAME.script_tool.Visible = False
-
+                            sub_FRAME.btn_manage.Visible = False
                     End Select
                     display_form(sub_FRAME)
                     sub_FRAME.userstrip.Text = "Hello, " & fname

@@ -87,7 +87,7 @@ Public Class sub_FRAME
         display_formscan(FG_Return)
     End Sub
 
-    Private Sub ManageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManageToolStripMenuItem.Click
+    Private Sub ManageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles btn_manage.Click
         display_formscan(Add_item)
     End Sub
 

@@ -7,7 +7,10 @@ Public Class stockmonitoring
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`, `partname`, `partcode`, `stockF2` FROM `f2_fg_masterlist`  
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT fm.partname, fs.partcode, sum(fs.qty) AS TOTAL FROM f2_fg_scan fs
+                                                    JOIN f2_fg_masterlist fm ON fs.partcode = fm.partcode
+                                                    WHERE fs.status='FG' or fs.status='R'
+                                                    GROUP BY fs.partcode
                                                     ORDER BY partname ASC", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)
@@ -27,7 +30,10 @@ Public Class stockmonitoring
         Try
             con.Close()
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT `id`, `partname`, `partcode`, `supplier`, `stockf2`, `wipstockf2` FROM `f2_parts_masterlist`  
+            Dim cmdrefreshgrid As New MySqlCommand("SELECT pm.partname, ps.partcode, sum(ps.qty) AS TOTAL FROM f2_parts_scan ps
+                                                    JOIN f2_parts_masterlist pm ON ps.partcode = pm.partcode
+                                                    WHERE ps.status='P'
+                                                    GROUP BY ps.partcode
                                                     ORDER BY partname ASC", con)
 
             Dim da As New MySqlDataAdapter(cmdrefreshgrid)

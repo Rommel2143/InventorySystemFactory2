@@ -51,17 +51,18 @@ Partial Class sub_FRAME
         Me.PartsINToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WIPINToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FGINToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.FGOUTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btn_manage = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
         Me.MenuStrip1.AutoSize = False
+        Me.MenuStrip1.BackColor = System.Drawing.Color.PowderBlue
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.ToolStripMenuItem1, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5, Me.QRCheckerToolStripMenuItem, Me.userstrip, Me.ManageToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.ToolStripMenuItem1, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5, Me.QRCheckerToolStripMenuItem, Me.userstrip, Me.btn_manage})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -272,12 +273,18 @@ Partial Class sub_FRAME
         Me.FGINToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.FGINToolStripMenuItem.Text = "FG IN"
         '
-        'ManageToolStripMenuItem
+        'FGOUTToolStripMenuItem
         '
-        Me.ManageToolStripMenuItem.Image = CType(resources.GetObject("ManageToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ManageToolStripMenuItem.Name = "ManageToolStripMenuItem"
-        Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(94, 37)
-        Me.ManageToolStripMenuItem.Text = "Manage"
+        Me.FGOUTToolStripMenuItem.Name = "FGOUTToolStripMenuItem"
+        Me.FGOUTToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.FGOUTToolStripMenuItem.Text = "FG OUT"
+        '
+        'btn_manage
+        '
+        Me.btn_manage.Image = CType(resources.GetObject("btn_manage.Image"), System.Drawing.Image)
+        Me.btn_manage.Name = "btn_manage"
+        Me.btn_manage.Size = New System.Drawing.Size(94, 37)
+        Me.btn_manage.Text = "Manage"
         '
         'Panel1
         '
@@ -286,12 +293,6 @@ Partial Class sub_FRAME
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1208, 636)
         Me.Panel1.TabIndex = 12
-        '
-        'FGOUTToolStripMenuItem
-        '
-        Me.FGOUTToolStripMenuItem.Name = "FGOUTToolStripMenuItem"
-        Me.FGOUTToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
-        Me.FGOUTToolStripMenuItem.Text = "FG OUT"
         '
         'sub_FRAME
         '
@@ -334,7 +335,7 @@ Partial Class sub_FRAME
     Friend WithEvents ToolStripMenuItem9 As ToolStripMenuItem
     Friend WithEvents SCANWIPToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SCANFGToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ManageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btn_manage As ToolStripMenuItem
     Friend WithEvents CheckUpdatesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents script_tool As ToolStripMenuItem
     Friend WithEvents PartsINToolStripMenuItem As ToolStripMenuItem
