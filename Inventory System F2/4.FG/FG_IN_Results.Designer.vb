@@ -158,7 +158,7 @@ Partial Class FG_IN_Results
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(29, 145)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 13)
+        Me.Label4.Size = New System.Drawing.Size(42, 13)
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "Batch :"
         '
@@ -181,11 +181,13 @@ Partial Class FG_IN_Results
         '
         Me.cmbbatchin.BackColor = System.Drawing.Color.Transparent
         Me.cmbbatchin.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbbatchin.DropDownHeight = 330
         Me.cmbbatchin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbatchin.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmbbatchin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmbbatchin.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmbbatchin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbbatchin.IntegralHeight = False
         Me.cmbbatchin.ItemHeight = 30
         Me.cmbbatchin.Location = New System.Drawing.Point(32, 161)
         Me.cmbbatchin.Name = "cmbbatchin"

@@ -265,7 +265,7 @@ Partial Class Parts_In
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(33, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 13)
+        Me.Label3.Size = New System.Drawing.Size(72, 13)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Batch Code :"
         '

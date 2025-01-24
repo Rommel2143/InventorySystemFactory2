@@ -26,13 +26,15 @@ Partial Class Parts_IN_Results
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Parts_IN_Results))
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Parts_IN_Results))
         Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.dtpicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbuser = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -41,7 +43,6 @@ Partial Class Parts_IN_Results
         Me.Label2 = New System.Windows.Forms.Label()
         Me.datagrid2 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel3.SuspendLayout()
         CType(Me.datagrid2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,6 +121,7 @@ Partial Class Parts_IN_Results
         Me.Guna2Panel3.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel3.BorderColor = System.Drawing.Color.Gray
         Me.Guna2Panel3.BorderRadius = 15
+        Me.Guna2Panel3.Controls.Add(Me.Guna2Button2)
         Me.Guna2Panel3.Controls.Add(Me.Guna2Button1)
         Me.Guna2Panel3.Controls.Add(Me.dtpicker)
         Me.Guna2Panel3.Controls.Add(Me.Label4)
@@ -138,6 +140,43 @@ Partial Class Parts_IN_Results
         Me.Guna2Panel3.ShadowDecoration.Enabled = True
         Me.Guna2Panel3.Size = New System.Drawing.Size(314, 269)
         Me.Guna2Panel3.TabIndex = 4
+        '
+        'Guna2Button2
+        '
+        Me.Guna2Button2.BorderColor = System.Drawing.Color.DimGray
+        Me.Guna2Button2.BorderRadius = 5
+        Me.Guna2Button2.BorderThickness = 1
+        Me.Guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button2.FillColor = System.Drawing.Color.White
+        Me.Guna2Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button2.ForeColor = System.Drawing.Color.DimGray
+        Me.Guna2Button2.Location = New System.Drawing.Point(147, 212)
+        Me.Guna2Button2.Name = "Guna2Button2"
+        Me.Guna2Button2.Size = New System.Drawing.Size(108, 39)
+        Me.Guna2Button2.TabIndex = 14
+        Me.Guna2Button2.Text = "Incoming Delivery Sheet"
+        '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.BorderColor = System.Drawing.Color.DimGray
+        Me.Guna2Button1.BorderRadius = 5
+        Me.Guna2Button1.BorderThickness = 1
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.Color.White
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.DimGray
+        Me.Guna2Button1.Image = CType(resources.GetObject("Guna2Button1.Image"), System.Drawing.Image)
+        Me.Guna2Button1.Location = New System.Drawing.Point(32, 212)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(108, 39)
+        Me.Guna2Button1.TabIndex = 7
+        Me.Guna2Button1.Text = "Export to PDF"
         '
         'dtpicker
         '
@@ -161,7 +200,7 @@ Partial Class Parts_IN_Results
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(29, 145)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 13)
+        Me.Label4.Size = New System.Drawing.Size(42, 13)
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "Batch :"
         '
@@ -184,11 +223,13 @@ Partial Class Parts_IN_Results
         '
         Me.cmbbatchin.BackColor = System.Drawing.Color.Transparent
         Me.cmbbatchin.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbbatchin.DropDownHeight = 330
         Me.cmbbatchin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbatchin.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmbbatchin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmbbatchin.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmbbatchin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbbatchin.IntegralHeight = False
         Me.cmbbatchin.ItemHeight = 30
         Me.cmbbatchin.Location = New System.Drawing.Point(32, 161)
         Me.cmbbatchin.Name = "cmbbatchin"
@@ -290,25 +331,6 @@ Partial Class Parts_IN_Results
         Me.Guna2Panel1.Size = New System.Drawing.Size(1039, 583)
         Me.Guna2Panel1.TabIndex = 7
         '
-        'Guna2Button1
-        '
-        Me.Guna2Button1.BorderColor = System.Drawing.Color.DimGray
-        Me.Guna2Button1.BorderRadius = 5
-        Me.Guna2Button1.BorderThickness = 1
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.FillColor = System.Drawing.Color.White
-        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.DimGray
-        Me.Guna2Button1.Image = CType(resources.GetObject("Guna2Button1.Image"), System.Drawing.Image)
-        Me.Guna2Button1.Location = New System.Drawing.Point(88, 212)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.Size = New System.Drawing.Size(114, 39)
-        Me.Guna2Button1.TabIndex = 7
-        Me.Guna2Button1.Text = "Export to PDF"
-        '
         'Parts_IN_Results
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -338,4 +360,5 @@ Partial Class Parts_IN_Results
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
 End Class

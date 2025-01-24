@@ -70,7 +70,7 @@ Partial Class FG_OUT_Results
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(12, 160)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 13)
+        Me.Label4.Size = New System.Drawing.Size(42, 13)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Batch :"
         '
@@ -93,11 +93,13 @@ Partial Class FG_OUT_Results
         '
         Me.cmbbatchout.BackColor = System.Drawing.Color.Transparent
         Me.cmbbatchout.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbbatchout.DropDownHeight = 330
         Me.cmbbatchout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbatchout.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmbbatchout.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmbbatchout.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmbbatchout.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbbatchout.IntegralHeight = False
         Me.cmbbatchout.ItemHeight = 30
         Me.cmbbatchout.Location = New System.Drawing.Point(15, 176)
         Me.cmbbatchout.Name = "cmbbatchout"

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="incoming_delivery" targetNamespace="http://tempuri.org/incoming_delivery.xsd" xmlns:mstns="http://tempuri.org/incoming_delivery.xsd" xmlns="http://tempuri.org/incoming_delivery.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="incoming_delivery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="incoming_delivery" msprop:Generator_UserDSName="incoming_delivery">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="incoming_delivery" msprop:Generator_TableClassName="incoming_deliveryDataTable" msprop:Generator_TableVarName="tableincoming_delivery" msprop:Generator_RowChangedName="incoming_deliveryRowChanged" msprop:Generator_TablePropName="_incoming_delivery" msprop:Generator_RowDeletingName="incoming_deliveryRowDeleting" msprop:Generator_RowChangingName="incoming_deliveryRowChanging" msprop:Generator_RowEvHandlerName="incoming_deliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="incoming_deliveryRowDeleted" msprop:Generator_RowClassName="incoming_deliveryRow" msprop:Generator_UserTableName="incoming_delivery" msprop:Generator_RowEvArgName="incoming_deliveryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="batch" msprop:Generator_ColumnVarNameInTable="columnbatch" msprop:Generator_ColumnPropNameInRow="batch" msprop:Generator_ColumnPropNameInTable="batchColumn" msprop:Generator_UserColumnName="batch" type="xs:string" minOccurs="0" />
+              <xs:element name="suppliercode" msprop:Generator_ColumnVarNameInTable="columnsuppliercode" msprop:Generator_ColumnPropNameInRow="suppliercode" msprop:Generator_ColumnPropNameInTable="suppliercodeColumn" msprop:Generator_UserColumnName="suppliercode" type="xs:string" minOccurs="0" />
+              <xs:element name="partname" msprop:Generator_ColumnVarNameInTable="columnpartname" msprop:Generator_ColumnPropNameInRow="partname" msprop:Generator_ColumnPropNameInTable="partnameColumn" msprop:Generator_UserColumnName="partname" type="xs:string" minOccurs="0" />
+              <xs:element name="partcode" msprop:Generator_ColumnVarNameInTable="columnpartcode" msprop:Generator_ColumnPropNameInRow="partcode" msprop:Generator_ColumnPropNameInTable="partcodeColumn" msprop:Generator_UserColumnName="partcode" type="xs:string" minOccurs="0" />
+              <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" type="xs:int" minOccurs="0" />
+              <xs:element name="firstname" msprop:Generator_ColumnVarNameInTable="columnfirstname" msprop:Generator_ColumnPropNameInRow="firstname" msprop:Generator_ColumnPropNameInTable="firstnameColumn" msprop:Generator_UserColumnName="firstname" type="xs:string" minOccurs="0" />
+              <xs:element name="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn" msprop:Generator_UserColumnName="remarks" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:incoming_delivery" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

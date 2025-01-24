@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ptif1-ds\SystemServer\Inventorysystem-F2\</UpdateUrl>
     <PublisherName>Rommel Magnaye</PublisherName>
-    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationRevision>25</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -196,6 +196,26 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="0.MAIN\Module1.vb" />
+    <Compile Include="1.PARTS\delivery_report.Designer.vb">
+      <DependentUpon>delivery_report.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1.PARTS\delivery_report.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1.PARTS\IncomingDelivery.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncomingDelivery.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="1.PARTS\incoming_delivery_dataset.Designer.vb">
+      <DependentUpon>incoming_delivery_dataset.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="1.PARTS\incoming_delivery_dataset.vb">
+      <DependentUpon>incoming_delivery_dataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="1.PARTS\PARTS_IN.designer.vb">
       <DependentUpon>PARTS_IN.vb</DependentUpon>
     </Compile>
@@ -368,6 +388,16 @@
     <EmbeddedResource Include="0.MAIN\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="1.PARTS\delivery_report.resx">
+      <DependentUpon>delivery_report.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1.PARTS\IncomingDelivery.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>IncomingDelivery.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1.PARTS\incoming_delivery_dataset.resx">
+      <DependentUpon>incoming_delivery_dataset.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="1.PARTS\PARTS_IN.resx">
       <DependentUpon>PARTS_IN.vb</DependentUpon>
     </EmbeddedResource>
@@ -458,6 +488,17 @@
     </None>
     <None Include="0.MAIN\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="1.PARTS\incoming_delivery_dataset.xsc">
+      <DependentUpon>incoming_delivery_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="1.PARTS\incoming_delivery_dataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>incoming_delivery_dataset.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="1.PARTS\incoming_delivery_dataset.xss">
+      <DependentUpon>incoming_delivery_dataset.xsd</DependentUpon>
     </None>
     <None Include="Inventory System F2_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">

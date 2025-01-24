@@ -206,5 +206,9 @@ Public Class Parts_IN_Results
         End Try
     End Sub
 
-
+    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+        delivery_report.viewdata(dtpicker.Value.ToString("yyyy-MM-dd"), cmbuser.Text, cmbbatchin.Text)
+        delivery_report.Show()
+        delivery_report.BringToFront()
+    End Sub
 End Class
