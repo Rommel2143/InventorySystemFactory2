@@ -26,7 +26,7 @@ FROM
 WHERE
         ts.datein = '" & datetext & "' and so.Fullname = '" & user & "' and ts.batch='" & batch & "'
 GROUP BY
-        ts.partcode
+        ts.partcode,ts.suppliercode
 ORDER BY
     ts.datein;", con)
         Dim da As New MySqlDataAdapter(showreport)

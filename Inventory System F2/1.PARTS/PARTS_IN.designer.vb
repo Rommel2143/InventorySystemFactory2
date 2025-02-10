@@ -32,6 +32,8 @@ Partial Class Parts_In
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtdrsi = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -66,6 +68,8 @@ Partial Class Parts_In
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.txtdrsi)
         Me.Panel2.Controls.Add(Me.Guna2Panel2)
         Me.Panel2.Controls.Add(Me.labelerror)
         Me.Panel2.Controls.Add(Me.Guna2GroupBox1)
@@ -81,6 +85,35 @@ Partial Class Parts_In
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1278, 237)
         Me.Panel2.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(34, 121)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(68, 13)
+        Me.Label1.TabIndex = 208
+        Me.Label1.Text = "DR/SI or DN"
+        '
+        'txtdrsi
+        '
+        Me.txtdrsi.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtdrsi.DefaultText = ""
+        Me.txtdrsi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtdrsi.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtdrsi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtdrsi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtdrsi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtdrsi.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtdrsi.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtdrsi.IconLeft = CType(resources.GetObject("txtdrsi.IconLeft"), System.Drawing.Image)
+        Me.txtdrsi.Location = New System.Drawing.Point(36, 137)
+        Me.txtdrsi.Name = "txtdrsi"
+        Me.txtdrsi.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtdrsi.PlaceholderText = "Enter DRSI..."
+        Me.txtdrsi.SelectedText = ""
+        Me.txtdrsi.Size = New System.Drawing.Size(201, 36)
+        Me.txtdrsi.TabIndex = 207
         '
         'Guna2Panel2
         '
@@ -230,11 +263,11 @@ Partial Class Parts_In
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(33, 104)
+        Me.Label5.Location = New System.Drawing.Point(241, 121)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(58, 13)
+        Me.Label5.Size = New System.Drawing.Size(52, 13)
         Me.Label5.TabIndex = 201
-        Me.Label5.Text = "QR Code :"
+        Me.Label5.Text = "QR Code"
         '
         'Label7
         '
@@ -265,9 +298,9 @@ Partial Class Parts_In
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(33, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 13)
+        Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Batch Code :"
+        Me.Label3.Text = "Batch Code"
         '
         'batchcode
         '
@@ -280,6 +313,7 @@ Partial Class Parts_In
         Me.batchcode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.batchcode.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.batchcode.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.batchcode.IconLeft = CType(resources.GetObject("batchcode.IconLeft"), System.Drawing.Image)
         Me.batchcode.Location = New System.Drawing.Point(35, 58)
         Me.batchcode.Name = "batchcode"
         Me.batchcode.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -301,7 +335,7 @@ Partial Class Parts_In
         Me.txtqr.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtqr.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtqr.IconLeft = CType(resources.GetObject("txtqr.IconLeft"), System.Drawing.Image)
-        Me.txtqr.Location = New System.Drawing.Point(35, 120)
+        Me.txtqr.Location = New System.Drawing.Point(243, 137)
         Me.txtqr.Name = "txtqr"
         Me.txtqr.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtqr.PlaceholderText = "Scan QR..."
@@ -518,4 +552,6 @@ Partial Class Parts_In
     Friend WithEvents datagrid2 As DataGridView
     Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtdrsi As Guna.UI2.WinForms.Guna2TextBox
 End Class

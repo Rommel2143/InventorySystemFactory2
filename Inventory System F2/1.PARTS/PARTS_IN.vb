@@ -50,49 +50,21 @@ Public Class Parts_In
 
                 con.Close()
                 con.Open()
-                Dim cmdselect As New MySqlCommand("SELECT `qrcode`,`status`,`datein` FROM `f2_parts_scan` WHERE `qrcode`='" & qrcode & "'", con)
-                dr = cmdselect.ExecuteReader
-                'CON 2 : DUPLICATE QR or GET location
+                Dim cmdpartcode As New MySqlCommand("SELECT `id` FROM `f2_parts_masterlist` WHERE `partcode`='" & partcode & "' and `supplier`= '" & supplier & "'", con)
+                dr = cmdpartcode.ExecuteReader
                 If dr.Read = True Then
-                    status = dr.GetString("status")
-                    datein = dr.GetDateTime("datein")
+                    Dim dataid As String = dr.GetInt32("id")
+                    'SAVING
+                    insert_to_scan_parts()
+                    ' add_to_parts(qty, dataid)
+                    refreshgrid()
+                    refreshgrid2()
 
-                    Select Case status
-                        Case "P"
-                            showduplicate(datein) 'duplicate
-                            txtqr.Text = ""
-                            txtqr.Focus()
-                        Case "W"
-                            QRisWIP() 'qr wip
-                            txtqr.Text = ""
-                            txtqr.Focus()
-                        Case "R"
-                            showerror("Marked as Returned to Supplier Item!")
-                            txtqr.Text = ""
-                            txtqr.Focus()
-                    End Select
-                    con.Close()
-
-                Else 'CON 2 : NOT DUPLICATE
-                    con.Close()
-                    con.Open()
-                    Dim cmdpartcode As New MySqlCommand("SELECT `id` FROM `f2_parts_masterlist` WHERE `partcode`='" & partcode & "' and `supplier`= '" & supplier & "'", con)
-                    dr = cmdpartcode.ExecuteReader
-                    If dr.Read = True Then
-                        Dim dataid As String = dr.GetInt32("id")
-                        'SAVING
-                        insert_to_scan_parts()
-                        add_to_parts(qty, dataid)
-                        refreshgrid()
-                        refreshgrid2()
-                        return_ok()
-
-
-                    Else  'CON 3 : PARTCODE
-                        showerror("No Partcode Exists!")
-                    End If
-
+                Else  'CON 3 : PARTCODE
+                    showerror("No Partcode Exists!")
                 End If
+
+
             Else  'CON 1 : QR SPLITING
                 showerror("INVALID QR SCANNED!")
                 con.Close()
@@ -103,15 +75,19 @@ Public Class Parts_In
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+        Finally
+            con.Close()
+            txtqr.Clear()
+            txtqr.Focus()
         End Try
 
     End Sub
 
 
-    Private Sub Guna2TextBox2_TextChanged(sender As Object, e As EventArgs) Handles batchcode.TextChanged
+    Private Sub Guna2TextBox2_TextChanged(sender As Object, e As EventArgs) Handles batchcode.TextChanged, txtdrsi.TextChanged
         Try
             batch = batchcode.Text
-            If batchcode.Text = "" Then
+            If batchcode.Text = "" Or txtdrsi.Text = "" Then
                 txtqr.Enabled = False
                 Label4.Visible = False
                 Label7.Visible = False
@@ -119,7 +95,7 @@ Public Class Parts_In
             Else
 
                 viewdata("SELECT `batch`, `userin`, `datein` FROM `f2_parts_scan`
-                         WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`= '" & batchcode.Text & "'")
+                         WHERE `datein`='" & datedb & "' and `userin`='" & idno & "' and `batch`= '" & batchcode.Text & "' LIMIT 1")
                 If dr.Read = True Then
                     Label4.Visible = True
                     Label7.Visible = True
@@ -144,41 +120,39 @@ Public Class Parts_In
 
     Private Sub insert_to_scan_parts()
         Try
-
             con.Close()
             con.Open()
-            Dim cmdinsert As New MySqlCommand("INSERT INTO `f2_parts_scan` (`status`,
-                                                                            `batch`,
-                                                                            `userin`,
-                                                                            `datein`,
-                                                                            `partcode`,
-                                                                            `suppliercode`,
-                                                                            `qrcode`,
-                                                                            `lotnumber`,
-                                                                            `serial`,
-                                                                            `remarks`,
-                                                                            `qty`) 
 
-                                                       VALUES ('P',
-                                                              '" & batch & "',
-                                                              '" & idno & "',
-                                                              '" & datedb & "',
-                                                              '" & partcode & "',
-                                                              '" & supplier & "',
-                                                              '" & qrcode & "',
-                                                              '" & lotnumber & "',
-                                                              '" & serial & "',
-                                                              '" & remarks & "',
-                                                              '" & qty & "')", con)
-            cmdinsert.ExecuteNonQuery()
+            Dim query As String = "INSERT INTO `f2_parts_scan` (`status`, `batch`, `drsi`, `userin`, `datein`, `timein`, `partcode`, `suppliercode`, `qrcode`, `lotnumber`, `serial`, `remarks`, `qty`) 
+                               VALUES (@status, @batch, @drsi, @userin, CURDATE(), CURTIME(), @partcode, @suppliercode, @qrcode, @lotnumber, @serial, @remarks, @qty)"
 
+            Using cmdinsert As New MySqlCommand(query, con)
+                cmdinsert.Parameters.AddWithValue("@status", "P")
+                cmdinsert.Parameters.AddWithValue("@batch", batch)
+                cmdinsert.Parameters.AddWithValue("@drsi", txtdrsi.Text)
+                cmdinsert.Parameters.AddWithValue("@userin", idno)
+                cmdinsert.Parameters.AddWithValue("@partcode", partcode)
+                cmdinsert.Parameters.AddWithValue("@suppliercode", supplier)
+                cmdinsert.Parameters.AddWithValue("@qrcode", qrcode)
+                cmdinsert.Parameters.AddWithValue("@lotnumber", lotnumber)
+                cmdinsert.Parameters.AddWithValue("@serial", serial)
+                cmdinsert.Parameters.AddWithValue("@remarks", remarks)
+                cmdinsert.Parameters.AddWithValue("@qty", Convert.ToInt32(qty)) ' Assuming qty is an integer
+
+                cmdinsert.ExecuteNonQuery()
+            End Using
+            labelerror.Visible = False
+        Catch ex As MySqlException When ex.Number = 1062
+            showduplicate()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            showerror(ex.Message)
         Finally
-            con.Close()
+            If con IsNot Nothing AndAlso con.State = ConnectionState.Open Then
+                con.Close()
+            End If
         End Try
-
     End Sub
+
 
 
 
@@ -200,10 +174,10 @@ Public Class Parts_In
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-    Private Sub showduplicate(ByVal datetext As String)
+    Private Sub showduplicate()
         Try
             labelerror.Visible = True
-            texterror.Text = "DUPLICATE! Already scanned on '" & datetext & "'"
+            texterror.Text = "DUPLICATE! Already scanned"
             soundduplicate()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -222,15 +196,6 @@ Public Class Parts_In
     End Sub
 
 
-    Private Sub return_ok()
-        Try
-            labelerror.Visible = False
-            txtqr.Clear()
-            txtqr.Focus()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
 
     Private Sub refreshgrid()
         Try

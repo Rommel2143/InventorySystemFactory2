@@ -17,8 +17,7 @@ VALUES ('" & P_Partname.Text & "','" & P_partcode.Text & "','" & P_supplier.Text
                 cmdinsert.ExecuteNonQuery()
                 MessageBox.Show("Partcode Added successfully!")
                 con.Close()
-                txtqr.Text = ""
-                txtqr.Focus()
+
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -42,8 +41,7 @@ VALUES ('" & P_Partname.Text & "','" & P_partcode.Text & "','" & P_supplier.Text
             Else  'CON 1 : QR SPLITING
                 MessageBox.Show("Invalid QR!")
                 con.Close()
-                txtqr.Text = ""
-                txtqr.Focus()
+
             End If
 
 
@@ -72,9 +70,8 @@ VALUES ('" & fg_partname.Text & "','" & fgcode.Text & "','0')", con)
                 cmdinsert.ExecuteNonQuery()
                 MessageBox.Show("FG Added successfully!")
                 con.Close()
-                txtqr.Text = ""
-                txtqr.Focus()
-
+                fgcode.Clear()
+                fg_partname.Clear()
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             Finally
@@ -87,7 +84,7 @@ VALUES ('" & fg_partname.Text & "','" & fgcode.Text & "','0')", con)
 
     End Sub
 
-    Private Sub txtqr_TextChanged(sender As Object, e As EventArgs) Handles txtqr.TextChanged
+    Private Sub txtqr_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -100,8 +97,7 @@ VALUES ('" & fg_partname.Text & "','" & fgcode.Text & "','0')", con)
             cmdinsert.ExecuteNonQuery()
             MessageBox.Show("USER Added successfully!")
             con.Close()
-            txtqr.Text = ""
-            txtqr.Focus()
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
@@ -110,24 +106,15 @@ VALUES ('" & fg_partname.Text & "','" & fgcode.Text & "','0')", con)
 
     End Sub
 
-    Private Sub fg_txtqr_TextChanged(sender As Object, e As EventArgs) Handles fg_txtqr.TextChanged
+    Private Sub fg_txtqr_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub fg_txtqr_KeyDown(sender As Object, e As KeyEventArgs) Handles fg_txtqr.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            qrcode = txtqr.Text
-            processQRcode(fg_txtqr.Text)
-            fgcode.Text = partcode
-        End If
-    End Sub
 
-    Private Sub txtqr_KeyDown(sender As Object, e As KeyEventArgs) Handles txtqr.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            qrcode = txtqr.Text
-            processQRcode(txtqr.Text)
-            P_partcode.Text = partcode
-            P_supplier.Text = supplier
-        End If
+
+
+
+    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
+
     End Sub
 End Class
