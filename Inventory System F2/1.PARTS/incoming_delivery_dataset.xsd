@@ -24,6 +24,8 @@
               <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" type="xs:int" minOccurs="0" />
               <xs:element name="firstname" msprop:Generator_ColumnVarNameInTable="columnfirstname" msprop:Generator_ColumnPropNameInRow="firstname" msprop:Generator_ColumnPropNameInTable="firstnameColumn" msprop:Generator_UserColumnName="firstname" type="xs:string" minOccurs="0" />
               <xs:element name="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn" msprop:Generator_UserColumnName="remarks" type="xs:string" minOccurs="0" />
+              <xs:element name="drsi" msprop:Generator_ColumnVarNameInTable="columndrsi" msprop:Generator_ColumnPropNameInRow="drsi" msprop:Generator_ColumnPropNameInTable="drsiColumn" msprop:Generator_UserColumnName="drsi" type="xs:string" minOccurs="0" />
+              <xs:element name="timein" msprop:Generator_ColumnVarNameInTable="columntimein" msprop:Generator_ColumnPropNameInRow="timein" msprop:Generator_ColumnPropNameInTable="timeinColumn" msprop:Generator_UserColumnName="timein" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

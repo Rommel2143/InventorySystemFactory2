@@ -301,6 +301,10 @@ Partial Public Class incoming_delivery
         
         Private columnremarks As Global.System.Data.DataColumn
         
+        Private columndrsi As Global.System.Data.DataColumn
+        
+        Private columntimein As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -409,6 +413,22 @@ Partial Public Class incoming_delivery
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property drsiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndrsi
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property timeinColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntimein
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -445,9 +465,9 @@ Partial Public Class incoming_delivery
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addincoming_deliveryRow(ByVal id As String, ByVal _date As Date, ByVal batch As String, ByVal suppliercode As String, ByVal partname As String, ByVal partcode As String, ByVal qty As Integer, ByVal firstname As String, ByVal remarks As String) As incoming_deliveryRow
+        Public Overloads Function Addincoming_deliveryRow(ByVal id As String, ByVal _date As Date, ByVal batch As String, ByVal suppliercode As String, ByVal partname As String, ByVal partcode As String, ByVal qty As Integer, ByVal firstname As String, ByVal remarks As String, ByVal drsi As String, ByVal timein As String) As incoming_deliveryRow
             Dim rowincoming_deliveryRow As incoming_deliveryRow = CType(Me.NewRow,incoming_deliveryRow)
-            Dim columnValuesArray() As Object = New Object() {id, _date, batch, suppliercode, partname, partcode, qty, firstname, remarks}
+            Dim columnValuesArray() As Object = New Object() {id, _date, batch, suppliercode, partname, partcode, qty, firstname, remarks, drsi, timein}
             rowincoming_deliveryRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowincoming_deliveryRow)
             Return rowincoming_deliveryRow
@@ -485,6 +505,8 @@ Partial Public Class incoming_delivery
             Me.columnqty = MyBase.Columns("qty")
             Me.columnfirstname = MyBase.Columns("firstname")
             Me.columnremarks = MyBase.Columns("remarks")
+            Me.columndrsi = MyBase.Columns("drsi")
+            Me.columntimein = MyBase.Columns("timein")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -511,6 +533,10 @@ Partial Public Class incoming_delivery
             MyBase.Columns.Add(Me.columnfirstname)
             Me.columnremarks = New Global.System.Data.DataColumn("remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnremarks)
+            Me.columndrsi = New Global.System.Data.DataColumn("drsi", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndrsi)
+            Me.columntimein = New Global.System.Data.DataColumn("timein", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntimein)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AllowDBNull = false
             Me.columnid.Unique = true
@@ -793,6 +819,36 @@ Partial Public Class incoming_delivery
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property drsi() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableincoming_delivery.drsiColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'drsi' in table 'incoming_delivery' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableincoming_delivery.drsiColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property timein() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableincoming_delivery.timeinColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'timein' in table 'incoming_delivery' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableincoming_delivery.timeinColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Is_dateNull() As Boolean
             Return Me.IsNull(Me.tableincoming_delivery.dateColumn)
         End Function
@@ -885,6 +941,30 @@ Partial Public Class incoming_delivery
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetremarksNull()
             Me(Me.tableincoming_delivery.remarksColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsdrsiNull() As Boolean
+            Return Me.IsNull(Me.tableincoming_delivery.drsiColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetdrsiNull()
+            Me(Me.tableincoming_delivery.drsiColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IstimeinNull() As Boolean
+            Return Me.IsNull(Me.tableincoming_delivery.timeinColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SettimeinNull()
+            Me(Me.tableincoming_delivery.timeinColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

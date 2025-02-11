@@ -4,7 +4,7 @@ Public Class delivery_report
 
     End Sub
 
-    Public Sub viewdata(datetext As String, user As String, batch As String)
+    Public Sub viewdata(datetext As String, user As String, column As String, batch As String)
         dt.Clear()
 
         con.Close()
@@ -18,13 +18,15 @@ ts.suppliercode,
 ts.partcode,
    sum( ts.qty) AS qty,
    so.Fullname AS firstname,
-  ts.remarks
+  ts.remarks,
+ts.drsi,
+ts.timein
 FROM
     f2_parts_scan ts
     Left Join f2_scanoperator_is so ON ts.userin = so.IDno
     Left Join f2_parts_masterlist tm ON ts.partcode = tm.partcode
 WHERE
-        ts.datein = '" & datetext & "' and so.Fullname = '" & user & "' and ts.batch='" & batch & "'
+        ts.datein = '" & datetext & "' and so.Fullname = '" & user & "' and " & column & "='" & batch & "'
 GROUP BY
         ts.partcode,ts.suppliercode
 ORDER BY
