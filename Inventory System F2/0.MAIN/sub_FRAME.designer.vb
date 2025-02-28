@@ -62,7 +62,7 @@ Partial Class sub_FRAME
         Me.MenuStrip1.AutoSize = False
         Me.MenuStrip1.BackColor = System.Drawing.Color.PowderBlue
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.ToolStripMenuItem1, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5, Me.QRCheckerToolStripMenuItem, Me.userstrip, Me.btn_manage})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterlistToolStripMenuItem, Me.ToolStripMenuItem1, Me.QRCheckerToolStripMenuItem, Me.ToolStripMenuItem3, Me.ToolStripMenuItem5, Me.userstrip, Me.btn_manage})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -103,14 +103,14 @@ Partial Class sub_FRAME
         '
         Me.ToolStripMenuItem2.Image = CType(resources.GetObject("ToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(159, 26)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem2.Text = "Recieve"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Image = CType(resources.GetObject("ToolStripMenuItem4.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(159, 26)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem4.Text = "Return WIP"
         '
         'ToolStripMenuItem3
@@ -126,19 +126,19 @@ Partial Class sub_FRAME
         '
         Me.ToolStripMenuItem9.Image = CType(resources.GetObject("ToolStripMenuItem9.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(153, 26)
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(180, 26)
         Me.ToolStripMenuItem9.Text = "SETUP FG"
         '
         'SCANWIPToolStripMenuItem
         '
         Me.SCANWIPToolStripMenuItem.Name = "SCANWIPToolStripMenuItem"
-        Me.SCANWIPToolStripMenuItem.Size = New System.Drawing.Size(153, 26)
+        Me.SCANWIPToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.SCANWIPToolStripMenuItem.Text = "SCAN WIP"
         '
         'SCANFGToolStripMenuItem
         '
         Me.SCANFGToolStripMenuItem.Name = "SCANFGToolStripMenuItem"
-        Me.SCANFGToolStripMenuItem.Size = New System.Drawing.Size(153, 26)
+        Me.SCANFGToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.SCANFGToolStripMenuItem.Text = "SCAN FG"
         '
         'ToolStripMenuItem5
@@ -258,25 +258,25 @@ Partial Class sub_FRAME
         'PartsINToolStripMenuItem
         '
         Me.PartsINToolStripMenuItem.Name = "PartsINToolStripMenuItem"
-        Me.PartsINToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.PartsINToolStripMenuItem.Size = New System.Drawing.Size(134, 26)
         Me.PartsINToolStripMenuItem.Text = "Parts IN"
         '
         'WIPINToolStripMenuItem
         '
         Me.WIPINToolStripMenuItem.Name = "WIPINToolStripMenuItem"
-        Me.WIPINToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.WIPINToolStripMenuItem.Size = New System.Drawing.Size(134, 26)
         Me.WIPINToolStripMenuItem.Text = "WIP IN"
         '
         'FGINToolStripMenuItem
         '
         Me.FGINToolStripMenuItem.Name = "FGINToolStripMenuItem"
-        Me.FGINToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.FGINToolStripMenuItem.Size = New System.Drawing.Size(134, 26)
         Me.FGINToolStripMenuItem.Text = "FG IN"
         '
         'FGOUTToolStripMenuItem
         '
         Me.FGOUTToolStripMenuItem.Name = "FGOUTToolStripMenuItem"
-        Me.FGOUTToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.FGOUTToolStripMenuItem.Size = New System.Drawing.Size(134, 26)
         Me.FGOUTToolStripMenuItem.Text = "FG OUT"
         '
         'btn_manage
