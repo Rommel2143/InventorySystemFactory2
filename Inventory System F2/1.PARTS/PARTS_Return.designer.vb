@@ -123,7 +123,6 @@ Partial Class PARTS_Return
         Me.txtqr.IconLeft = CType(resources.GetObject("txtqr.IconLeft"), System.Drawing.Image)
         Me.txtqr.Location = New System.Drawing.Point(61, 79)
         Me.txtqr.Name = "txtqr"
-        Me.txtqr.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtqr.PlaceholderText = "Scan QR..."
         Me.txtqr.SelectedText = ""
         Me.txtqr.Size = New System.Drawing.Size(389, 36)

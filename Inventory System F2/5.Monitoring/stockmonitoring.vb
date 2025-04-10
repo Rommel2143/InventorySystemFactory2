@@ -2,61 +2,39 @@
 Public Class stockmonitoring
     Private Sub stock_monitoring_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtdate.Text = date1
+        dtpicker1.Value = Date.Now
     End Sub
-    Private Sub refreshgridfg()
-        Try
+
+    Private Sub dtpicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtpicker1.ValueChanged
+        ' Using parameterized query for security
+        Dim query As String = "SELECT ps.partcode AS Partcode, pm.partname AS 'Partname', 
+                                SUM(CASE WHEN ps.datein IS NOT NULL THEN ps.qty ELSE 0 END) AS 'Total IN',
+                                SUM(CASE WHEN ps.dateout IS NOT NULL THEN ps.qty ELSE 0 END) AS 'Total OUT'
+                               FROM f2_parts_scan ps
+                               JOIN f2_parts_masterlist pm ON ps.partcode = pm.partcode
+                               WHERE ps.datein = @selectedDate
+                               GROUP BY ps.partcode, pm.partname"
+
+
+        Using cmd As New MySqlCommand(query, con)
+            ' Add parameter for date
+            cmd.Parameters.AddWithValue("@selectedDate", dtpicker1.Value.ToString("yyyy-MM-dd"))
             con.Close()
+            ' Open connection
             con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT fm.partname, fs.partcode, sum(fs.qty) AS TOTAL FROM f2_fg_scan fs
-                                                    JOIN f2_fg_masterlist fm ON fs.partcode = fm.partcode
-                                                    WHERE fs.status='FG' or fs.status='R'
-                                                    GROUP BY fs.partcode
-                                                    ORDER BY partname ASC", con)
 
-            Dim da As New MySqlDataAdapter(cmdrefreshgrid)
-            Dim dt As New DataTable
-            da.Fill(dt)
-            datagrid1.DataSource = dt
+            ' Execute the query and bind to DataGridView
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                ' Assuming you already have a method to bind the result to datagrid1
+                Dim dt As New DataTable()
+                dt.Load(reader)
+                datagrid1.DataSource = dt
+            End Using
 
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-
-            con.Close()
-        End Try
-    End Sub
-    Private Sub refreshgridparts()
-        Try
-            con.Close()
-            con.Open()
-            Dim cmdrefreshgrid As New MySqlCommand("SELECT pm.partname, ps.partcode, sum(ps.qty) AS TOTAL FROM f2_parts_scan ps
-                                                    JOIN f2_parts_masterlist pm ON ps.partcode = pm.partcode
-                                                    WHERE ps.status='P'
-                                                    GROUP BY ps.partcode
-                                                    ORDER BY partname ASC", con)
-
-            Dim da As New MySqlDataAdapter(cmdrefreshgrid)
-            Dim dt As New DataTable
-            da.Fill(dt)
-            datagrid1.DataSource = dt
-
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-
-            con.Close()
-        End Try
+        End Using
     End Sub
 
-
-    Private Sub Guna2ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbselect.SelectedIndexChanged
-        Select Case cmbselect.Text
-            Case "Parts"
-                refreshgridparts()
-            Case "FG"
-                refreshgridfg()
-        End Select
+    Private Sub btn_export_Click(sender As Object, e As EventArgs) Handles btn_export.Click
+        exporttoExcel(datagrid1, "DAILY PARTS REPORT")
     End Sub
 End Class

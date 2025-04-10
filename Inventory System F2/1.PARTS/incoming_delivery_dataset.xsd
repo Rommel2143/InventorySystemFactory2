@@ -12,7 +12,7 @@
   <xs:element name="incoming_delivery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="incoming_delivery" msprop:Generator_UserDSName="incoming_delivery">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="incoming_delivery" msprop:Generator_TableClassName="incoming_deliveryDataTable" msprop:Generator_TableVarName="tableincoming_delivery" msprop:Generator_RowChangedName="incoming_deliveryRowChanged" msprop:Generator_TablePropName="_incoming_delivery" msprop:Generator_RowDeletingName="incoming_deliveryRowDeleting" msprop:Generator_RowChangingName="incoming_deliveryRowChanging" msprop:Generator_RowEvHandlerName="incoming_deliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="incoming_deliveryRowDeleted" msprop:Generator_RowClassName="incoming_deliveryRow" msprop:Generator_UserTableName="incoming_delivery" msprop:Generator_RowEvArgName="incoming_deliveryRowChangeEvent">
+        <xs:element name="incoming_delivery" msprop:Generator_TableClassName="incoming_deliveryDataTable" msprop:Generator_TableVarName="tableincoming_delivery" msprop:Generator_TablePropName="_incoming_delivery" msprop:Generator_RowDeletingName="incoming_deliveryRowDeleting" msprop:Generator_RowChangingName="incoming_deliveryRowChanging" msprop:Generator_RowEvHandlerName="incoming_deliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="incoming_deliveryRowDeleted" msprop:Generator_UserTableName="incoming_delivery" msprop:Generator_RowChangedName="incoming_deliveryRowChanged" msprop:Generator_RowEvArgName="incoming_deliveryRowChangeEvent" msprop:Generator_RowClassName="incoming_deliveryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" />
@@ -26,6 +26,16 @@
               <xs:element name="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn" msprop:Generator_UserColumnName="remarks" type="xs:string" minOccurs="0" />
               <xs:element name="drsi" msprop:Generator_ColumnVarNameInTable="columndrsi" msprop:Generator_ColumnPropNameInRow="drsi" msprop:Generator_ColumnPropNameInTable="drsiColumn" msprop:Generator_UserColumnName="drsi" type="xs:string" minOccurs="0" />
               <xs:element name="timein" msprop:Generator_ColumnVarNameInTable="columntimein" msprop:Generator_ColumnPropNameInRow="timein" msprop:Generator_ColumnPropNameInTable="timeinColumn" msprop:Generator_UserColumnName="timein" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dailyreports" msprop:Generator_TableClassName="dailyreportsDataTable" msprop:Generator_TableVarName="tabledailyreports" msprop:Generator_TablePropName="dailyreports" msprop:Generator_RowDeletingName="dailyreportsRowDeleting" msprop:Generator_RowChangingName="dailyreportsRowChanging" msprop:Generator_RowEvHandlerName="dailyreportsRowChangeEventHandler" msprop:Generator_RowDeletedName="dailyreportsRowDeleted" msprop:Generator_UserTableName="dailyreports" msprop:Generator_RowChangedName="dailyreportsRowChanged" msprop:Generator_RowEvArgName="dailyreportsRowChangeEvent" msprop:Generator_RowClassName="dailyreportsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="partcode" msprop:Generator_ColumnVarNameInTable="columnpartcode" msprop:Generator_ColumnPropNameInRow="partcode" msprop:Generator_ColumnPropNameInTable="partcodeColumn" msprop:Generator_UserColumnName="partcode" type="xs:string" minOccurs="0" />
+              <xs:element name="partname" msprop:Generator_ColumnVarNameInTable="columnpartname" msprop:Generator_ColumnPropNameInRow="partname" msprop:Generator_ColumnPropNameInTable="partnameColumn" msprop:Generator_UserColumnName="partname" type="xs:string" minOccurs="0" />
+              <xs:element name="incoming" msprop:Generator_ColumnVarNameInTable="columnincoming" msprop:Generator_ColumnPropNameInRow="incoming" msprop:Generator_ColumnPropNameInTable="incomingColumn" msprop:Generator_UserColumnName="incoming" type="xs:string" minOccurs="0" />
+              <xs:element name="outgoing" msprop:Generator_ColumnVarNameInTable="columnoutgoing" msprop:Generator_ColumnPropNameInRow="outgoing" msprop:Generator_ColumnPropNameInTable="outgoingColumn" msprop:Generator_UserColumnName="outgoing" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

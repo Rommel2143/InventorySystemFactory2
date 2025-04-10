@@ -109,7 +109,6 @@ Partial Class Parts_In
         Me.txtdrsi.IconLeft = CType(resources.GetObject("txtdrsi.IconLeft"), System.Drawing.Image)
         Me.txtdrsi.Location = New System.Drawing.Point(36, 137)
         Me.txtdrsi.Name = "txtdrsi"
-        Me.txtdrsi.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtdrsi.PlaceholderText = "Enter DRSI..."
         Me.txtdrsi.SelectedText = ""
         Me.txtdrsi.Size = New System.Drawing.Size(201, 36)
@@ -316,7 +315,6 @@ Partial Class Parts_In
         Me.batchcode.IconLeft = CType(resources.GetObject("batchcode.IconLeft"), System.Drawing.Image)
         Me.batchcode.Location = New System.Drawing.Point(35, 58)
         Me.batchcode.Name = "batchcode"
-        Me.batchcode.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.batchcode.PlaceholderText = "Enter Batch..."
         Me.batchcode.SelectedText = ""
         Me.batchcode.Size = New System.Drawing.Size(201, 36)
@@ -337,7 +335,6 @@ Partial Class Parts_In
         Me.txtqr.IconLeft = CType(resources.GetObject("txtqr.IconLeft"), System.Drawing.Image)
         Me.txtqr.Location = New System.Drawing.Point(243, 137)
         Me.txtqr.Name = "txtqr"
-        Me.txtqr.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtqr.PlaceholderText = "Scan QR..."
         Me.txtqr.SelectedText = ""
         Me.txtqr.Size = New System.Drawing.Size(389, 36)
@@ -427,7 +424,6 @@ Partial Class Parts_In
         Me.cmbsearch.IconLeft = CType(resources.GetObject("cmbsearch.IconLeft"), System.Drawing.Image)
         Me.cmbsearch.Location = New System.Drawing.Point(13, 10)
         Me.cmbsearch.Name = "cmbsearch"
-        Me.cmbsearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.cmbsearch.PlaceholderText = "Enter Batch or QR..."
         Me.cmbsearch.SelectedText = ""
         Me.cmbsearch.Size = New System.Drawing.Size(222, 32)
