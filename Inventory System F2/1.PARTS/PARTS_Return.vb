@@ -63,7 +63,7 @@ Public Class PARTS_Return
                         Case "P"
                             con.Close()
                             con.Open()
-                            Dim cmdpartcode As New MySqlCommand("SELECT `id` FROM `f2_parts_masterlist` WHERE `partcode`='" & partcode & "' and `supplier`= '" & supplier & "'", con)
+                            Dim cmdpartcode As New MySqlCommand("SELECT `id` FROM `f2_parts_masterlist` WHERE `partcode`='" & partcode & "'", con)
                             dr = cmdpartcode.ExecuteReader
                             If dr.Read = True Then
                                 Dim dataid As String = dr.GetInt32("id")
